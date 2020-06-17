@@ -25,10 +25,10 @@ function printProducts() {
 function makeCard(products) {
     let emptyCol = '<div class="col-2"></div>';
     let card = '<div class="card"><div>';
-    let img = '<img src="" class="card-img-top">';
+    let img = '<img src="" class="card-img-top" data-toggle="modal" data-target="#product_details">';
     let cardBody = '<div class="card-body"></div>';
-    let cardTitle = '<h5 class="card-title">Apple</h5>';
-    let cardText = '<p class="card-text">6,98</p>';
+    let cardTitle = '<h5 class="card-title"></h5>';
+    let cardText = '<p class="card-text"></p>';
     let cardProduct = [];
     for (let i = 0; i <4; i++) {
         if (products.length > 0) {
@@ -48,5 +48,5 @@ function makeCard(products) {
 }
 
 function showProduct() {
-    alert($(event.target).data("idProduct"));
+    
 }
