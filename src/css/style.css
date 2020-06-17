@@ -11,7 +11,7 @@ body {
 }
 
 /* ---------------------------------------------------
-    MODAL STYLE
+    LOGIN MODAL STYLE
 ----------------------------------------------------- */
 .main-content {
     width: 50%;
@@ -65,8 +65,14 @@ body {
     border-right: 1px solid #ccc;
 }
 
+.login_form h2 {
+    font-size: 1.5rem;
+}
+
 form {
     padding: 0 1rem;
+    width: 100%;
+    margin: 0 2rem;
 }
 
 .form__input {
@@ -74,10 +80,11 @@ form {
     border: 0px solid transparent;
     border-radius: 0;
     border-bottom: 1px solid #aaa;
-    padding: 1em .5em .5em;
-    padding-left: 2em;
+    padding: 0.5rem .5rem .5rem;
+    /* padding: 1em .5em .5em; */
+    /* padding-left: 2em; */
     outline: none;
-    margin: 1.5em auto;
+    margin: 1.5rem auto 0rem;
     transition: all .5s ease;
 }
 
@@ -109,7 +116,8 @@ form {
     SIDEBAR STYLE
 ----------------------------------------------------- */
 .wrapper {
-    display: flex;
+    display: none;
+    /* display: flex; */
     width: 100%;
     align-items: stretch;
 }
