@@ -5,3 +5,7 @@ body {
 .bg-primary {
     background-color: #FFA101 !important;
 }
+
+.bg-light {
+    background-color: #e9ecef !important;
+}
