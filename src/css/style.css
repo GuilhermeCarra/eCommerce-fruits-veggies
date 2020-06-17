@@ -9,3 +9,8 @@ body {
 .bg-light {
     background-color: #e9ecef !important;
 }
+
+.dropdown-menu {
+    width: 300px !important;
+    height: 400px !important;
+}
