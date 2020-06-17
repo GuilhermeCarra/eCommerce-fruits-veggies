@@ -28,7 +28,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #fff;
 }
 
 .company__info h4 {
@@ -102,8 +101,8 @@ form {
     font-weight: 600;
     background-color: #fff;
     border: 1px solid #008080;
-    margin-top: 1.5em;
-    margin-bottom: 1em;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .login-btn:hover,
