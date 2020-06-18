@@ -1,4 +1,6 @@
-/* GLOBAL VARIABLES */
+/* ---------------------------------------------------
+    GLOBAL VARIABLES
+----------------------------------------------------- */
 var cart = [];
 
 if (localStorage.getItem("shop") == null) {
@@ -10,7 +12,9 @@ if (localStorage.getItem("shop") == null) {
 
 printProducts();
 
-/* Home-page */
+/* ---------------------------------------------------
+    USER HOME-PAGE
+----------------------------------------------------- */
 
 function printProducts(filter) {
     $(".productsLine").remove();
@@ -77,7 +81,9 @@ $("#searchInput").on('input',function(){
     printProducts(filteredProducts)
 })
 
-/* Product Details Page */
+/* ---------------------------------------------------
+    PRODUCT DETAILS PAGE
+----------------------------------------------------- */
 
 function showProduct() {
     let idProduct = $(event.target).data("idProduct");
