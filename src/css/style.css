@@ -36,7 +36,7 @@ body {
 
 @media screen and (max-width: 640px) {
     .main-content {
-        width: 90%;
+        width: 80%;
     }
 
     .company__info {
@@ -47,11 +47,33 @@ body {
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
     }
+
+    .login-btn {
+        width: 70% ! important;
+    }
 }
 
 @media screen and (min-width: 642px) and (max-width:800px) {
     .main-content {
         width: 70%;
+    }
+
+    .company__info {
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .company__info .company_title {
+        margin: 0.5rem auto;
+    }
+
+    .login_form {
+        border-top-right-radius: 0px ! important;
+        border-top-left-radius: 0px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
     }
 }
 
