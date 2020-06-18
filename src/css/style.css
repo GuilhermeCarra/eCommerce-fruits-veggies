@@ -17,7 +17,9 @@ svg {
     cursor: pointer;
 }
 
-/* USER HOME-PAGE */
+/* ------------------------------------------------
+    USER HOME-PAGE
+--------------------------------------------------- */
 
 #filter_bar {
     z-index: 1040;
@@ -34,7 +36,9 @@ svg {
     transition: 200ms;
 }
 
-/* PRODUCT DETAILS PAGE */
+/* ------------------------------------------------
+    PRODUCT DETAILS PAGE
+--------------------------------------------------- */
 
 .change-qnt:hover {
     transform: scale(1.2);
