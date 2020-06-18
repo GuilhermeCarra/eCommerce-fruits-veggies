@@ -18,9 +18,8 @@ svg {
 
 /* USER HOME-PAGE */
 
-.dropdown-menu {
-    width: 300px !important;
-    height: 400px !important;
+#filter_bar {
+    z-index: 2024;
 }
 
 /* PRODUCT DETAILS PAGE */
