@@ -53,7 +53,7 @@ let prod2 = {
   img: "src/img/apricorn.jpg",
   price: 1.8,
   description: "Basket of apricots 6 units",
-  quantity: 1000,
+  stockQty: 1000,
   category: [
     "Fruits"
   ]
@@ -65,7 +65,7 @@ let prod3 = {
   img: "src/img/melon.jpg",
   price: 2.8,
   description: "Whole watermelon about 3kg",
-  quantity: 1000,
+  stockQty: 1000,
   category: [
     "Fruits"
   ]
@@ -77,7 +77,7 @@ let prod4 = {
   img: "src/img/tangerine.jpg",
   price: 2.8,
   description: "Oranges mesh 2kg",
-  quantity: 1000,
+  stockQty: 1000,
   category: [
     "Fruits"
   ]
@@ -89,7 +89,7 @@ let prod5 = {
   img: "src/img/apple.jpg",
   price: 2.8,
   description: "Basket of apples 4 units",
-  quantity: 1000,
+  stockQty: 1000,
   category: [
     "Fruits"
   ]
@@ -168,4 +168,25 @@ function appendAdmin(adminObj) {
   let $btn = $('<td>').html('<button>Edit</button>').appendTo($newRow);
   //TODO: Add event listener to button
   $('#admin-table tbody').append($newRow);
+}
+
+function appendProduct(prodObj) {
+  let $newRow = $('<tr>');
+  let $id = $('<td>').text(prodObj.id).appendTo($newRow);
+  let $name = $('<td>').text(prodObj.title).appendTo($newRow);
+  let $price = $('<td>').text(prodObj.price).appendTo($newRow);
+  let $stock = $('<td>').text(prodObj.stockQty).appendTo($newRow);
+  let $btn = $('<td>').html('<button>Edit</button>').appendTo($newRow);
+  //TODO: Add event listener to button
+  $('#product-table tbody').append($newRow);
+}
+
+function appendCategory(catObj) {
+  let $newRow = $('<tr>');
+  let $id = $('<td>').text(catObj.id).appendTo($newRow);
+  let $name = $('<td>').text(catObj.name).appendTo($newRow);
+  let $color = $('<td>').text(catObj.color).appendTo($newRow);
+  let $btn = $('<td>').html('<button>Edit</button>').appendTo($newRow);
+  //TODO: Add event listener to button
+  $('#category-table tbody').append($newRow);
 }
