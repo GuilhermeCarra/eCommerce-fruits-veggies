@@ -80,3 +80,14 @@ function validateLogin() {
   }
   return adminName;
 }
+
+function appendAdmin(adminObj) {
+  let $newRow = $('<tr>');
+  let $id = $('<td>').text(adminObj.id).appendTo($newRow);
+  let $name = $('<td>').text(adminObj.name).appendTo($newRow);
+  let $surname = $('<td>').text(adminObj.surname).appendTo($newRow);
+  let $email = $('<td>').text(adminObj.email).appendTo($newRow);
+  let $btn = $('<td>').html('<button>Edit</button>').appendTo($newRow);
+  //TODO: Add event listener to button
+  $('#admin-table tbody').append($newRow);
+}
