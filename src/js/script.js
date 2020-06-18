@@ -71,7 +71,6 @@ $("#categoryFilter").change(function() {
 $("#searchInput").on('input',function(){
     $("#categoryFilter").val("all");
     let filter = $(event.target).val();
-    console.log(filter);
     let filteredProducts = shop.Products.filter(function(product) {
         if (product.title.toUpperCase().includes(filter.toUpperCase())) return product
     });
