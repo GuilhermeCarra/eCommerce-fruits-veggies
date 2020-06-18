@@ -54,6 +54,23 @@ function makeCard(products) {
     return cardProduct;
 }
 
+$("#categoryFilter").change(function() {
+    let filter = $(event.target).val();
+    let filteredProducts = shop.Products.filter(function(product) {
+        if (product.category == filter) return product
+    });
+    printProducts(filteredProducts)
+});
+
+$("#searchInput").on('input',function(){
+    let filter = $(event.target).val();
+    console.log(filter);
+    let filteredProducts = shop.Products.filter(function(product) {
+        if (product.title.toUpperCase().includes(filter.toUpperCase())) return product
+    });
+    printProducts(filteredProducts)
+})
+
 /* Product Details Page */
 
 function showProduct() {
@@ -98,11 +115,3 @@ $("#addCartBtn").click(function() {
     cart.push(buy);
     $('#product_details').modal('hide');
 });
-
-$("#categoryFilter").change(function(){
-    let filter = $(event.target).val();
-    let filteredProducts = shop.Products.filter(function(product) {
-        if (product.category == filter) return product
-    });
-    printProducts(filteredProducts)
-})
