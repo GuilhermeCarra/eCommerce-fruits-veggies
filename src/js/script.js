@@ -7,13 +7,13 @@ if (localStorage.getItem("shop") == null) {
 } else {
     var shop = JSON.parse(localStorage.getItem("shop"));
 }
-let products = shop.Products;
 
 printProducts();
 
 /* Home-page */
 
 function printProducts() {
+    let products = [...shop.Products];
     let row = '<div class="row mb-4"></div>';
     let emptyCol = '<div class="col-2"></div>';
     let lines = Math.ceil(products.length / 4);
