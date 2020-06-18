@@ -192,7 +192,8 @@
                             <div class="invalid-feedback"> Valid Price is required. </div>
                         </div>
                         <div class="mb-3">
-                            <label for="chooseColor" id="chooseColor" class="font-weight-bold">Choose Color</label>
+                            <label for="chooseColorProduct" id="chooseColorProduct" class="font-weight-bold">Choose
+                                Color</label>
                             <select class="form-control">
                                 <option>Choose Color..</option>
                                 <option>Green</option>
@@ -224,9 +225,40 @@
                 </div>
             </div>
             <div class="col-2"></div>
+            <!--End New Product-->
+            <!---New Category--->
+            <div class="row justify-content-center d-none" id="createNewCategory" href="#createNewCategory">
+                <div class="col-8 order-md-1 pb-5">
+                    <h3 class="mb-3 pl-5 pt-5 pb-4 font-weight-bold">New Category</h3>
+                    <form class="needs-validation" novalidate="">
+                        <div class="row">
+                            <div class="col-12 pb-4">
+                                <label for="categoryTitle" class="font-weight-bold">Category Title</label>
+                                <input type="text" class="form-control" id="categoryTitle" placeholder="0" value=""
+                                    required="">
+                                <div class="invalid-feedback"> Valid Category is required. </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-12">
+                                <label for="chooseColorCategory" id="chooseColorCategory"
+                                    class="font-weight-bold">Choose Color</label>
+                                <select class="form-control">
+                                    <option>Choose Color..</option>
+                                    <option>Green</option>
+                                    <option>Blue</option>
+                                    <option>Yellow</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center pt-5">
+                            <button class="col-8 btn btn-primary btn-lg btn-block" type="submit">Create Category</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--End New Category-->
         </div>
-        <!--End New Product-->
-        <!---New Category--->
     </div>
 
     <!-- Footer -->

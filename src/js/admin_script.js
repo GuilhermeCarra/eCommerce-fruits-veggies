@@ -44,6 +44,13 @@ function validateLogin() {
 
 //Create New Products
 $("#addNewProduct").click(function () {
-    $("#createNewProduct").removeClass("d-none");
+  $("#createNewCategory").addClass("d-none");
 
-})
+    $("#createNewProduct").removeClass("d-none");
+});
+
+//Create New Category
+$("#addNewCategory").click(function () {
+  $("#createNewCategory").removeClass("d-none");
+  $("#createNewProduct").addClass("d-none");
+});
