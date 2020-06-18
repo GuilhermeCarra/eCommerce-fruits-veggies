@@ -49,10 +49,10 @@ function makeCard(products) {
                     $(cardBody).append(
                         $(cardTitle).text(products[0].title),
                         $(cardText).text(products[0].price+" €/pc")
-                        )
-                        )
-                        )
-                    products.shift();
+                    )
+                )
+            )
+        products.shift();
         }
     }
     return cardProduct;
