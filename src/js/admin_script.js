@@ -8,16 +8,16 @@ if (!shop) {
     categories: [],
     admins: []
   };
-  let masterAdmin = {
-    id: 1,
-    name: "admin",
-    surname: "administrator",
-    email: "master",
-    password: "1234"
-  }
-  shop.admins.push(masterAdmin);
-  localStorage.setItem("shopJSON", JSON.stringify(shop));
 }
+let masterAdmin = {
+  id: 1,
+  name: "admin",
+  surname: "administrator",
+  email: "master",
+  password: "1234"
+}
+shop.admins.push(masterAdmin);
+localStorage.setItem("shopJSON", JSON.stringify(shop));
 
 // EVENT LISTENERS
 $(document).ready(function () {
