@@ -33,3 +33,7 @@ svg {
 #product_details {
     user-select: none;
 }
+img{
+  width: 75px;
+  height:80px;
+}
