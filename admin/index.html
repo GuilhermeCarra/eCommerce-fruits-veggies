@@ -110,10 +110,10 @@
                         class="dropdown-toggle">Products</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Product list</a>
+                            <a href="#" id="productList">Product list</a>
                         </li>
                         <li>
-                            <a href="#">Add new product</a>
+                            <a href="#" id="addNewProduct">Add new product</a>
                         </li>
                     </ul>
                 </li>
@@ -122,10 +122,10 @@
                         class="dropdown-toggle">Categories</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Category list</a>
+                            <a href="#" id="categoryList">Category list</a>
                         </li>
                         <li>
-                            <a href="#">Add new category</a>
+                            <a href="#" id="addNewCategory">Add new category</a>
                         </li>
                     </ul>
                 </li>
@@ -134,10 +134,10 @@
                         class="dropdown-toggle">Admins</a>
                     <ul class="collapse list-unstyled" id="adminSubmenu">
                         <li>
-                            <a href="#">Admin list</a>
+                            <a href="#" id="adminList">Admin list</a>
                         </li>
                         <li>
-                            <a href="#">Add new admin</a>
+                            <a href="#" id="addNewAdmin">Add new admin</a>
                         </li>
                     </ul>
                 </li>
@@ -154,7 +154,7 @@
                 </svg>
             </button>
             <!-------------Create New Product-------------->
-            <div class="row">
+            <div class="row d-none" id="createNewProduct">
                 <div class="col-2"></div>
                 <div class="col-8 order-md-1 pb-5">
                     <h3 class="mb-3 pl-5 pt-5 pb-4 font-weight-bold">New Product</h3>
@@ -222,8 +222,10 @@
                         </div>
                     </form>
                 </div>
+                
             </div>
             <div class="col-2"></div>
+            </div>
         </div>
         <!--End New Product-->
     </div>
