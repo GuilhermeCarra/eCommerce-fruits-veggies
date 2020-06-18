@@ -1,4 +1,6 @@
 /* GLOBAL VARIABLES */
+var cart = [];
+
 if (localStorage.getItem("shop") == null) {
     var shop = [];
     localStorage.setItem("shop", shop);
