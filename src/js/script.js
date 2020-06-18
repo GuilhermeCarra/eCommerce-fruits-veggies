@@ -62,13 +62,14 @@ $("#categoryFilter").change(function() {
         filteredProducts = shop.Products;
     } else {
         filteredProducts = shop.Products.filter(function(product) {
-        if (product.category == filter) return product
-    });
+            if (product.category == filter) return product
+        });
     }
     printProducts(filteredProducts)
 });
 
 $("#searchInput").on('input',function(){
+    $("#categoryFilter").val("all");
     let filter = $(event.target).val();
     console.log(filter);
     let filteredProducts = shop.Products.filter(function(product) {
