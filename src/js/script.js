@@ -55,13 +55,17 @@ function makeCard(products) {
 /* Product Details Page */
 
 function showProduct() {
+    let idProduct = $(event.target).data("idProduct");
     $("#productQnt").text("1");
-    let product = JSON.parse(localStorage.getItem("shop")).Products.find(({ id }) => id === $(event.target).data("idProduct"));
-    $("#product_details img").attr("src",product.img).data("idProduct",$(event.target).data("idProduct"));
+    let product = JSON.parse(localStorage.getItem("shop")).Products.find(({ id }) => id === idProduct);
+    $("#product_details img").attr("src",product.img).data("idProduct",idProduct);
     $("#product_details h5").text(product.category+" >");
     $("#details_title").text(product.title);
     $("#details_description").text(product.description);
     $("#details_price").text(product.price+" €/pc");
+    $("#thumb1").attr("src","src/img/"+idProduct+"_thumb1.jpg");
+    $("#thumb1").attr("src","src/img/"+idProduct+"_thumb2.jpg");
+    $("#thumb1").attr("src","src/img/"+idProduct+"_thumb3.jpg");
 }
 
 $("#restProduct").click(function() {
@@ -84,4 +88,4 @@ $("#addCartBtn").click(function() {
     let buy = {id:id, quantity:quantity};
     cart.push(buy);
     $('#product_details').modal('hide');
-})
+});
