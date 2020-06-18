@@ -128,7 +128,7 @@
         </div>
         <div class="col-1">
             <div class="dropdown">
-                <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#cartModal">
+                <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#cartModal" id="cart-modal">
                     <svg class="bi bi-cart3" width="2.2em" height="2.2em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -232,24 +232,50 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel2">Right Sidebar</h4>
+                    <h4 class="modal-title" id="myModalLabel2">Cart</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 </div>
 
                 <div class="modal-body">
-                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                        wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
-                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
-                        of them accusamus labore sustainable VHS.
-                    </p>
+                <div class="row" id="cart-content">
+                    <div class="col-4"><img src="./src/img/apple.jpg" alt="" class="img-thumbnail"></div>
+                    <div class="col"><h6>product title </h6> <span>00&euro;</span>  
+                        <p>Cart</p>
+                        <h2>Pieces</h2>
+                        <svg class="bi bi-trash-fill" width="2em" height="2em" viewBox="0 0 16 16" fill="#DC3545" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                          </svg>
+                         
+                          <svg class="bi bi-bag-plus" width="2em" height="2em" viewBox="0 0 16 16" fill="#FCB831" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z"/>
+                            <path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                            <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+                            <path fill-rule="evenodd" d="M7.5 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-2z"/>
+                          </svg>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+                            <svg class="bi bi-info" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="#FCB831" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                                <circle cx="8" cy="4.5" r="1"/>
+                              </svg>
+                            <span>Estimated total</span>
+                        </div>
+                        <div class="col-5">
+                            <span>00&euro;</span>
+                        </div>
+                        <!-- <button type="button" class="btn btn-secondary btn-lg btn-block">Checkout</button> -->
+                    </div>
+                    <button type="button" class="btn btn-success btn-lg btn-block">Checkout</button>
                 </div>
 
             </div>
+            
         </div>
+        
     </div>
 
 

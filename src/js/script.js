@@ -1,6 +1,6 @@
 /* GLOBAL VARIABLES */
 var cart = [];
-
+// console.log(cart)
 if (localStorage.getItem("shop") == null) {
     var shop = [];
     localStorage.setItem("shop", shop);
@@ -88,3 +88,27 @@ $("#addCartBtn").click(function () {
     cart.push(buy);
     $('#product_details').modal('hide');
 })
+
+
+
+
+
+
+// add to cart
+let cartImage='<div class="col-4"><img src="" alt="" class="img-thumbnail"></div>' 
+// let shopProducts = shop.Products
+// console.log(shopProducts)
+
+
+$("#cart-modal").click(function(){
+  let cartsProducts = [];
+  for(let i = 1; i < cart.length; i++){
+    console.log(cart[i].id)
+
+    let x = shop.Products.find(({ id }) => id === cart[i].id);
+    console.log(x)
+  }
+  // console.log(cartsProducts)
+})
+
+
