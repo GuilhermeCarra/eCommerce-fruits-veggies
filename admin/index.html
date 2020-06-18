@@ -1,17 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>EwB - eCommerce with Bootstrap</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="src/css/style.css">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    </head>
-    <body>
 
-        <p>Admin page test</p>
+<head>
+    <title>EwB - eCommerce with Bootstrap</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../src/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://kit.fontawesome.com/71f02e573d.js" crossorigin="anonymous"></script>
+</head>
 
+<body>
+    <!-- Login modal -->
+    <div class="container-fluid">
+        <div class="row main-content bg-success text-center">
+            <div class="col-md-4 text-center company__info">
+                <!-- <span class="company__logo">
+                    <i class="fa fa-android"></i>
+                </span> -->
+                <h4 class="company_title">Your Company Logo</h4>
+            </div>
+            <div class="col-md-8 col-xs-12 col-sm-12 login_form">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <h2 class="pt-3 text-center text-dark">Login</h2>
+                    </div>
+                    <div class="row justify-content-center">
+                        <form control="" class="form-group" novalidate autocomplete="off">
+                            <div class="row">
+                                <input type="text" name="email" id="email" class="form__input form-control"
+                                    placeholder="Email" required>
+                                <div class="valid-feedback text-left">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback text-left">
+                                    Please provide a valid email.
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <input type="password" name="password" id="password" class="form__input form-control"
+                                    placeholder="Password" required>
+                                <div class="valid-feedback text-left">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback text-left">
+                                    Please provide a valid password.
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <input type="submit" value="Submit" class="login-btn">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <!-- <div class="container"> -->
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Admin</a>
+                </li>
+            </ul>
+        </div>
+        <!-- </div> -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header">
+                <svg class="bi bi-emoji-smile-upside-down" width="1em" height="1em" viewBox="0 0 16 16"
+                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M8 1a7 7 0 1 1 0 14A7 7 0 0 1 8 1zm0-1a8 8 0 1 1 0 16A8 8 0 0 1 8 0z" />
+                    <path fill-rule="evenodd"
+                        d="M4.285 6.433a.5.5 0 0 0 .683-.183A3.498 3.498 0 0 1 8 4.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.498 4.498 0 0 0 8 3.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683z" />
+                    <path
+                        d="M7 9.5C7 8.672 6.552 8 6 8s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5zm4 0c0-.828-.448-1.5-1-1.5s-1 .672-1 1.5.448 1.5 1 1.5 1-.672 1-1.5z" />
+                </svg>
+                <h3>Welcome admin!</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Products</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Product list</a>
+                        </li>
+                        <li>
+                            <a href="#">Add new product</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Categories</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Category list</a>
+                        </li>
+                        <li>
+                            <a href="#">Add new category</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#adminSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Admins</a>
+                    <ul class="collapse list-unstyled" id="adminSubmenu">
+                        <li>
+                            <a href="#">Admin list</a>
+                        </li>
+                        <li>
+                            <a href="#">Add new admin</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <!-- <i class="fas fa-align-left"></i> -->
+                <svg class="bi bi-text-left" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-primary">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright © Your Website 2019</p>
+        </div>
+    </footer>
 
     <script src="../src/js/admin_script.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    </body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+</body>
+
 </html>

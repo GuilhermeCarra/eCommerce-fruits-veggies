@@ -1,5 +1,6 @@
-/* GENERAL */
-
+/* ---------------------------------------------------
+    GENERAL STYLES (FROM GUILHERME)
+----------------------------------------------------- */
 body {
     padding-top: 56px;
 }
@@ -51,4 +52,221 @@ svg {
 #product_details .img-thumbnail:hover {
     filter: brightness(95%);
     transition: 400ms;
+}
+/* ---------------------------------------------------
+    LOGIN MODAL STYLE
+----------------------------------------------------- */
+.main-content {
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .4);
+    margin: 5em auto;
+    display: flex;
+}
+
+.company__info {
+    background-color: #B3DEE5;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.company__info h4 {
+    font-size: 1rem;
+    color: black;
+}
+
+@media screen and (max-width: 640px) {
+    .main-content {
+        width: 80%;
+    }
+
+    .company__info {
+        display: none;
+    }
+
+    .login_form {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .login-btn {
+        width: 70% ! important;
+    }
+}
+
+@media screen and (min-width: 641px) and (max-width:767px) {
+    .main-content {
+        width: 70%;
+    }
+
+    .company__info {
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .company__info .company_title {
+        margin: 0.5rem auto;
+    }
+
+    .login_form {
+        border-top-right-radius: 0px ! important;
+        border-top-left-radius: 0px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+}
+
+.login_form {
+    background-color: #fff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.login_form h2 {
+    font-size: 1.5rem;
+}
+
+form {
+    padding: 0 1rem;
+    width: 100%;
+    margin: 0 2rem;
+}
+
+.form__input {
+    width: 100%;
+    border: 0px solid transparent;
+    border-radius: 0;
+    border-bottom: 1px solid #aaa;
+    padding: 0.5rem .5rem .5rem;
+    /* padding: 1em .5em .5em; */
+    /* padding-left: 2em; */
+    outline: none;
+    margin: 1.5rem auto 0rem;
+    transition: all .5s ease;
+}
+
+.form__input:focus {
+    border-bottom-color: #008080;
+    box-shadow: 0 0 5px rgba(0, 80, 80, .4);
+    border-radius: 4px;
+}
+
+.login-btn {
+    transition: all .5s ease;
+    width: 70%;
+    border-radius: 30px;
+    color: #008080;
+    font-weight: 600;
+    background-color: #fff;
+    border: 1px solid #008080;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+    background-color: #008080;
+    color: #fff;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+.wrapper {
+    display: none;
+    /* display: flex; */
+    width: 100%;
+    align-items: stretch;
+}
+
+.sidebar-header {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.bi-emoji-smile-upside-down {
+    margin-top: 0.5rem;
+    font-size: 3rem;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    /* background: #6d7fcc; */
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    /* border-bottom: 1px solid #47748b; */
+    /* Added Jorge */
+    margin-bottom: 0;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: #fff;
+}
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+    /* JORGE */
+    text-decoration: none;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    /* min-height: 100vh; */
+    transition: all 0.3s;
 }
