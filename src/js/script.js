@@ -55,6 +55,33 @@ function makeCard(products) {
 /* Product Details Page */
 
 function showProduct() {
+    $("#productQnt").text("1")
     let product = JSON.parse(localStorage.getItem("shop")).Products.find(({ id }) => id === $(event.target).data("idProduct"));
-    $("#product_details img").attr("src",product.img);
+    $("#product_details img").attr("src",product.img).data("idProduct",$(event.target).data("idProduct"));
+    $("#product_details h5").text(product.category+" >");
+    $("#details_title").text(product.title);
+    $("#details_description").text(product.description);
+    $("#details_price").text(product.price+" €/pc");
 }
+
+$("#restProduct").click(function() {
+    let quantity = parseInt($("#productQnt").text());
+    if(quantity > 1) {
+        quantity--;
+        $("#productQnt").text(quantity);
+    }
+});
+
+$("#addProduct").click(function() {
+    let quantity = parseInt($("#productQnt").text());
+    quantity++;
+    $("#productQnt").text(quantity);
+});
+
+$("#addCartBtn").click(function() {
+    let quantity = parseInt($("#productQnt").text());
+    let id = $("#product_details img").data("idProduct");
+    let buy = {id:id, quantity:quantity};
+    cart.push(buy);
+    $('#product_details').modal('hide');
+})
