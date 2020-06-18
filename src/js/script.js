@@ -7,13 +7,13 @@ if (localStorage.getItem("shop") == null) {
 } else {
     var shop = JSON.parse(localStorage.getItem('shop'));
 }
-let products = shop.Products;
 
 printProducts();
 
 /* Home-page */
 
 function printProducts() {
+    let products = [...shop.Products];
     let row = '<div class="row mb-4"></div>';
     let emptyCol = '<div class="col-2"></div>';
     let lines = Math.ceil(products.length / 4);
@@ -91,24 +91,38 @@ $("#addCartBtn").click(function () {
 
 
 
-
-
-
 // add to cart
-let cartImage='<div class="col-4"><img src="" alt="" class="img-thumbnail"></div>' 
-// let shopProducts = shop.Products
-// console.log(shopProducts)
-
-
+let row = '<div class="row"></div>'
+let cartImage='<div class="col-4"></div>' 
+let divColum = '<div class="col"></div>'
+let shopProducts = shop.Products
+let total = 0;
 $("#cart-modal").click(function(){
+    $("#cart-content").empty()
   let cartsProducts = [];
-  for(let i = 1; i < cart.length; i++){
+  for(let i = 0; i < cart.length; i++){
     console.log(cart[i].id)
-
-    let x = shop.Products.find(({ id }) => id === cart[i].id);
-    console.log(x)
+   cartsProducts.push(shop.Products.find(({id}) => id === cart[i].id)); 
   }
-  // console.log(cartsProducts)
+  for(let j = 0; j < cartsProducts.length; j++ ){
+      total += cart[j].quantity * cartsProducts[j].price
+      let piece;
+   if(cart[j].quantity > 1 ) {
+        piece = ' pieces'
+   }else{
+        piece = ' piece'
+   }
+ 
+$('#cart-content').append($(row)
+.append($(cartImage).append('<img class="img-thumbnail" src="'+cartsProducts[j].img +'" />'))
+.append($(divColum).append($('<h6>',{text:cartsProducts[j].title})).append($('<h6>',{text:cartsProducts[j].price+"\u20ac"}))
+.append($('<span>',{text:cart[j].quantity}).append($('<span>',{text:piece})).append($('<i class="fas fa-trash float-right"></i>').click(function(event){
+    // console.log(event.target)
+    // $('#cart-content').remove()
+}))))).append($('<hr class="col-xs-12">'))
+  }
+$('#cart-total').text(total +"\u20ac")
+//   console.log(cartsProducts)
 })
 
 
