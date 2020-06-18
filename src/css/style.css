@@ -1,3 +1,4 @@
+/* GENERAL */
 body {
     padding-top: 56px;
 }
@@ -10,7 +11,10 @@ body {
     background-color: #e9ecef !important;
 }
 
+/* USER HOME-PAGE */
 .dropdown-menu {
     width: 300px !important;
     height: 400px !important;
 }
+
+/* PRODUCT DETAILS PAGE */
