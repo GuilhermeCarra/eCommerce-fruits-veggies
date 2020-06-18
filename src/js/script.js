@@ -13,10 +13,10 @@ printProducts();
 /* Home-page */
 
 function printProducts(filter) {
-    $(".card").remove();
+    $(".productsLine").remove();
     let products = [...shop.Products];
     if (filter != undefined) products = filter;
-    let row = '<div class="row mb-4"></div>';
+    let row = '<div class="row mb-4 productsLine"></div>';
     let emptyCol = '<div class="col-2"></div>';
     let lines = Math.ceil(products.length / 4);
 
@@ -98,3 +98,11 @@ $("#addCartBtn").click(function() {
     cart.push(buy);
     $('#product_details').modal('hide');
 });
+
+$("#categoryFilter").change(function(){
+    let filter = $(event.target).val();
+    let filteredProducts = shop.Products.filter(function(product) {
+        if (product.category == filter) return product
+    });
+    printProducts(filteredProducts)
+})
