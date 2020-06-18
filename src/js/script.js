@@ -55,7 +55,7 @@ function makeCard(products) {
 /* Product Details Page */
 
 function showProduct() {
-    $("#productQnt").text("1")
+    $("#productQnt").text("1");
     let product = JSON.parse(localStorage.getItem("shop")).Products.find(({ id }) => id === $(event.target).data("idProduct"));
     $("#product_details img").attr("src",product.img).data("idProduct",$(event.target).data("idProduct"));
     $("#product_details h5").text(product.category+" >");
