@@ -12,8 +12,10 @@ printProducts();
 
 /* Home-page */
 
-function printProducts() {
+function printProducts(filter) {
+    $(".card").remove();
     let products = [...shop.Products];
+    if (filter != undefined) products = filter;
     let row = '<div class="row mb-4"></div>';
     let emptyCol = '<div class="col-2"></div>';
     let lines = Math.ceil(products.length / 4);
