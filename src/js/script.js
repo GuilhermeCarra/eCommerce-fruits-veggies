@@ -116,9 +116,18 @@ $("#addProduct").click(function() {
 });
 
 $("#addCartBtn").click(function() {
+    let foundOnCart = false;
     let quantity = parseInt($("#productQnt").text());
     let id = $("#product_details img").data("idProduct");
-    let buy = {id:id, quantity:quantity};
-    cart.push(buy);
+    for (i = 0; i < cart.length; i ++) {
+        if (cart[i].id == id) {
+            cart[i].quantity += quantity;
+            foundOnCart = true;
+        }
+    }
+    if (!foundOnCart) {
+        let buy = {id:id, quantity:quantity};
+        cart.push(buy);
+    }
     $('#product_details').modal('hide');
 });
