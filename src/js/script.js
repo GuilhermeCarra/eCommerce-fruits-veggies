@@ -1,12 +1,17 @@
-if (localStorage.getItem('shop') == null) {
-  var shop = [];
-  localStorage.setItem('shop', shop);
+/* GLOBAL VARIABLES */
+var cart = [];
+
+if (localStorage.getItem("shop") == null) {
+    var shop = [];
+    localStorage.setItem("shop", shop);
 } else {
   var shop = JSON.parse(localStorage.getItem('shop'));
 }
 let products = shop.Products;
 
 printProducts();
+
+/* Home-page */
 
 function printProducts() {
   let row = '<div class="row mb-4"></div>';
@@ -20,45 +25,61 @@ function printProducts() {
 let imge= '<img src="" class="card-img-top">';
 
 function makeCard(products) {
-  let emptyCol = '<div class="col-2"></div>';
-  let card = '<div class="card"><div>';
-  let img = '<img src="" class="card-img-top">';
-  let cardBody = '<div class="card-body"></div>';
-  let cardTitle = '<h5 class="card-title">Apple</h5>';
-  let cardText = '<p class="card-text">6,98</p>';
-  let cardProduct = [];
-  for (let i = 0; i < 4; i++) {
-    if (products.length > 0) {
-      cardProduct[i] = $(emptyCol).append(
-        $(card).append(
-          $(img)
-            .attr('src', products[0].img)
-            .data('idProduct', products[0].id)
-            .click(showProduct),
-          $(cardBody).append(
-            $(cardTitle).text(products[0].title),
-            $(cardText).text(products[0].price)
-          )
-        )
-      );
-      products.shift();
+    let emptyCol = '<div class="col-2"></div>';
+    let card = '<div class="card"><div>';
+    let img = '<img src="" class="card-img-top" data-toggle="modal" data-target="#product_details">';
+    let cardBody = '<div class="card-body"></div>';
+    let cardTitle = '<h5 class="card-title"></h5>';
+    let cardText = '<p class="card-text"></p>';
+    let cardProduct = [];
+    for (let i = 0; i <4; i++) {
+        if (products.length > 0) {
+            cardProduct[i] = $(emptyCol).append(
+                $(card).append(
+                    $(img).attr("src",products[0].img).data("idProduct",products[0].id).click(showProduct),
+                    $(cardBody).append(
+                        $(cardTitle).text(products[0].title),
+                        $(cardText).text(products[0].price+" €/pc")
+                        )
+                        )
+                        )
+                    products.shift();
+        
     }
   }
   return cardProduct;
 }
 
-function showProduct() {
-  alert($(event.target).data('idProduct'));
+/* Product Details Page */
 
+function showProduct() {
+    $("#productQnt").text("1");
+    let product = JSON.parse(localStorage.getItem("shop")).Products.find(({ id }) => id === $(event.target).data("idProduct"));
+    $("#product_details img").attr("src",product.img).data("idProduct",$(event.target).data("idProduct"));
+    $("#product_details h5").text(product.category+" >");
+    $("#details_title").text(product.title);
+    $("#details_description").text(product.description);
+    $("#details_price").text(product.price+" €/pc");
 }
 
-// event listenr for card
-$('#dropdownMenuButton').on('click', (e) => {
-  console.log(e.target);
-  addToCart();
+$("#restProduct").click(function() {
+    let quantity = parseInt($("#productQnt").text());
+    if(quantity > 1) {
+        quantity--;
+        $("#productQnt").text(quantity);
+    }
 });
 
-const addToCart = (food) => {
-  $('.cart-items').append("<img id='theImg' src='./src/img/watermelon.jpg'/>");
+$("#addProduct").click(function() {
+    let quantity = parseInt($("#productQnt").text());
+    quantity++;
+    $("#productQnt").text(quantity);
+});
 
-};
+$("#addCartBtn").click(function() {
+    let quantity = parseInt($("#productQnt").text());
+    let id = $("#product_details img").data("idProduct");
+    let buy = {id:id, quantity:quantity};
+    cart.push(buy);
+    $('#product_details').modal('hide');
+})
