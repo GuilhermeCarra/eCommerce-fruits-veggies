@@ -1,3 +1,4 @@
+/* GLOBAL VARIABLES */
 if (localStorage.getItem("shop") == null) {
     var shop = [];
     localStorage.setItem("shop", shop);
@@ -7,6 +8,8 @@ if (localStorage.getItem("shop") == null) {
 let products = shop.Products;
 
 printProducts();
+
+/* Home-page */
 
 function printProducts() {
     let row = '<div class="row mb-4"></div>';
@@ -48,6 +51,7 @@ function makeCard(products) {
 }
 
 /* Product Details Page */
+
 function showProduct() {
     let product = JSON.parse(localStorage.getItem("shop")).Products.find(({ id }) => id === $(event.target).data("idProduct"));
     $("#product_details img").attr("src",product.img);
