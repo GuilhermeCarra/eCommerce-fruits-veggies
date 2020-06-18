@@ -247,13 +247,13 @@ table button {
     border: solid 1px black;
 }
 
-/* #product-cont {
-    display: none;
-} */
-
-#category-cont {
+#product-cont {
     display: none;
 }
+
+/* #category-cont {
+    display: none;
+} */
 
 #admin-cont {
     display: none;

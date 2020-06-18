@@ -8,94 +8,94 @@ if (!shop) {
     categories: [],
     admins: []
   };
+  let masterAdmin = {
+    id: 1,
+    name: "admin",
+    surname: "administrator",
+    email: "master",
+    password: "1234"
+  }
+  shop.admins.push(masterAdmin);
+  let cat1 = {
+    id: 1,
+    name: "Fruits",
+    color: "blue"
+  }
+  shop.categories.push(cat1);
+  let cat2 = {
+    id: 2,
+    name: "Vegetables",
+    color: "green"
+  }
+  shop.categories.push(cat2);
+  let cat3 = {
+    id: 3,
+    name: "Juices",
+    color: "orange"
+  }
+  shop.categories.push(cat3);
+  let prod1 = {
+    id: 1,
+    title: "Watermelon",
+    img: "src/img/watermelon.jpg",
+    price: 6.98,
+    description: "Whole watermelon about 6kg",
+    stockQty: 1000,
+    category: [
+      "Fruits"
+    ]
+  }
+  shop.products.push(prod1);
+  let prod2 = {
+    id: 2,
+    title: "Apricot",
+    img: "src/img/apricorn.jpg",
+    price: 1.8,
+    description: "Basket of apricots 6 units",
+    stockQty: 1000,
+    category: [
+      "Fruits"
+    ]
+  }
+  shop.products.push(prod2);
+  let prod3 = {
+    id: 3,
+    title: "Melon",
+    img: "src/img/melon.jpg",
+    price: 2.8,
+    description: "Whole watermelon about 3kg",
+    stockQty: 1000,
+    category: [
+      "Fruits"
+    ]
+  }
+  shop.products.push(prod3);
+  let prod4 = {
+    id: 4,
+    title: "Tangerine",
+    img: "src/img/tangerine.jpg",
+    price: 2.8,
+    description: "Oranges mesh 2kg",
+    stockQty: 1000,
+    category: [
+      "Fruits"
+    ]
+  }
+  shop.products.push(prod4);
+  let prod5 = {
+    id: 5,
+    title: "Apple",
+    img: "src/img/apple.jpg",
+    price: 2.8,
+    description: "Basket of apples 4 units",
+    stockQty: 1000,
+    category: [
+      "Fruits"
+    ]
+  }
+  shop.products.push(prod5);
+  localStorage.setItem("shopJSON", JSON.stringify(shop));
 }
-let masterAdmin = {
-  id: 1,
-  name: "admin",
-  surname: "administrator",
-  email: "master",
-  password: "1234"
-}
-shop.admins.push(masterAdmin);
-let cat1 = {
-  id: 1,
-  name: "Fruits",
-  color: "blue"
-}
-shop.categories.push(cat1);
-let cat2 = {
-  id: 2,
-  name: "Vegetables",
-  color: "green"
-}
-shop.categories.push(cat2);
-let cat3 = {
-  id: 3,
-  name: "Juices",
-  color: "orange"
-}
-shop.categories.push(cat3);
-let prod1 = {
-  id: 1,
-  title: "Watermelon",
-  img: "src/img/watermelon.jpg",
-  price: 6.98,
-  description: "Whole watermelon about 6kg",
-  stockQty: 1000,
-  category: [
-    "Fruits"
-  ]
-}
-shop.products.push(prod1);
-let prod2 = {
-  id: 2,
-  title: "Apricot",
-  img: "src/img/apricorn.jpg",
-  price: 1.8,
-  description: "Basket of apricots 6 units",
-  stockQty: 1000,
-  category: [
-    "Fruits"
-  ]
-}
-shop.products.push(prod2);
-let prod3 = {
-  id: 3,
-  title: "Melon",
-  img: "src/img/melon.jpg",
-  price: 2.8,
-  description: "Whole watermelon about 3kg",
-  stockQty: 1000,
-  category: [
-    "Fruits"
-  ]
-}
-shop.products.push(prod3);
-let prod4 = {
-  id: 4,
-  title: "Tangerine",
-  img: "src/img/tangerine.jpg",
-  price: 2.8,
-  description: "Oranges mesh 2kg",
-  stockQty: 1000,
-  category: [
-    "Fruits"
-  ]
-}
-shop.products.push(prod4);
-let prod5 = {
-  id: 5,
-  title: "Apple",
-  img: "src/img/apple.jpg",
-  price: 2.8,
-  description: "Basket of apples 4 units",
-  stockQty: 1000,
-  category: [
-    "Fruits"
-  ]
-}
-shop.products.push(prod5);
-localStorage.setItem("shopJSON", JSON.stringify(shop));
 
 // EVENT LISTENERS
 $(document).ready(function () {
