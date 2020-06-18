@@ -60,7 +60,7 @@ function showProduct() {
     $(".img-thumbnail").removeClass("border-info");
     $("#productQnt").text("1");
     $("#detailsMainImg").attr("src",product.img).data("idProduct",idProduct);
-    $("#product_details h5").text(product.category+" >");
+    $("#product_details h5").text(product.category);
     $("#details_title").text(product.title);
     $("#details_description").text(product.description);
     $("#details_price").text(product.price+" €/pc");
