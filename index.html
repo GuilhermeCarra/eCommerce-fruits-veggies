@@ -168,7 +168,7 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -176,10 +176,26 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-5">
-                            <img src="" class="img-fluid" alt="Responsive image" >
+                            <img src="" class="img-fluid" alt="Responsive image">
                         </div>
                         <div class="col">
-
+                            <p class="font-weight-normal h2" id="details_title"></p>
+                            <p class="font-weight-lighter" id="details_description"></p>
+                            <p class="font-weight-bold display-4" id="details_price"></p>
+                            <div class="mb-4">
+                                <svg class="bi bi-caret-left-fill change-qnt" id="restProduct" width="2em" height="2em" viewBox="0 0 16 16"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                                </svg>
+                                <span class="h5" id="productQnt">1</span><span class="h5"> pc</span>
+                                <svg class="bi bi-caret-right-fill change-qnt" id="addProduct" width="2em" height="2em" viewBox="0 0 16 16"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                                </svg>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="addCartBtn">Add to cart</button>
                         </div>
                     </div>
                 </div>
