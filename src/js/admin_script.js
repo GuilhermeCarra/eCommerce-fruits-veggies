@@ -72,7 +72,7 @@ if (!shop) {
   shop.products.push(prod3);
   let prod4 = {
     id: 4,
-    title: "Tangerine",
+    title: "Orange",
     img: "src/img/tangerine.jpg",
     price: 2.8,
     description: "Oranges mesh 2kg",
