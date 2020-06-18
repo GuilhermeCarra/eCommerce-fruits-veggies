@@ -54,7 +54,7 @@ svg {
 }
 
 #product_details .img-thumbnail:hover {
-    filter: brightness(95%);
+    filter: brightness(85%);
     transition: 400ms ease-in-out;
 }
 /* ---------------------------------------------------
