@@ -33,7 +33,7 @@ svg {
 .card-img-top:hover {
     border-radius: 10%;
     transform: scale(1.1);
-    transition: 200ms;
+    transition: 200ms ease-in-out;
 }
 
 /* ------------------------------------------------
@@ -55,7 +55,7 @@ svg {
 
 #product_details .img-thumbnail:hover {
     filter: brightness(95%);
-    transition: 400ms;
+    transition: 400ms ease-in-out;
 }
 /* ---------------------------------------------------
     LOGIN MODAL STYLE
