@@ -159,6 +159,7 @@ form {
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
+    min-height: calc(100vh - 56px - 7rem);
 }
 
 #sidebar.active {
