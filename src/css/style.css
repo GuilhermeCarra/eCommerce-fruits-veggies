@@ -1,4 +1,5 @@
 /* GENERAL */
+
 body {
     padding-top: 56px;
 }
@@ -23,3 +24,12 @@ svg {
 }
 
 /* PRODUCT DETAILS PAGE */
+
+.change-qnt:hover {
+    transform: scale(1.2);
+    transition: 400ms;
+}
+
+#product_details {
+    user-select: none;
+}
