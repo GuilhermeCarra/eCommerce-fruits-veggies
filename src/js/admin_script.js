@@ -45,12 +45,23 @@ function validateLogin() {
 //Create New Products
 $("#addNewProduct").click(function () {
   $("#createNewCategory").addClass("d-none");
+  $("#createNewAdmin").addClass("d-none");
 
     $("#createNewProduct").removeClass("d-none");
 });
 
 //Create New Category
 $("#addNewCategory").click(function () {
-  $("#createNewCategory").removeClass("d-none");
   $("#createNewProduct").addClass("d-none");
+  $("#createNewAdmin").addClass("d-none");
+
+  $("#createNewCategory").removeClass("d-none");
 });
+
+//Create New Admin
+$("#addNewAdmin").click(function () {
+  $("#createNewProduct").addClass("d-none");
+  $("#createNewCategory").addClass("d-none");
+
+$("#createNewAdmin").removeClass("d-none");
+})

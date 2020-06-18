@@ -234,7 +234,7 @@
                         <div class="row">
                             <div class="col-12 pb-4">
                                 <label for="categoryTitle" class="font-weight-bold">Category Title</label>
-                                <input type="text" class="form-control" id="categoryTitle" placeholder="0" value=""
+                                <input type="text" class="form-control" id="categoryTitle" placeholder="Title" value=""
                                     required="">
                                 <div class="invalid-feedback"> Valid Category is required. </div>
                             </div>
@@ -252,12 +252,44 @@
                             </div>
                         </div>
                         <div class="row justify-content-center pt-5">
-                            <button class="col-8 btn btn-primary btn-lg btn-block" type="submit" id="CreateCategoryBtn">Create Category</button>
+                            <button class="col-8 btn btn-primary btn-lg btn-block" type="submit"
+                                id="CreateCategoryBtn">Create Category</button>
                         </div>
                     </form>
                 </div>
             </div>
             <!--End New Category-->
+            <!---- New Admin---->
+            <div class="row justify-content-center d-none" id="createNewAdmin" href="#createNewAdmin">
+                <div class="col-8 order-md-1 pb-5">
+                    <h3 class="mb-3 pl-5 pt-5 pb-4 font-weight-bold">New Admin</h3>
+                    <form class="needs-validation" novalidate="">
+                        <div class="row">
+                            <div class="col-12 pb-4">
+                                <label for="fullNameAdmin" class="font-weight-bold" id="fullNameAdmin">Full Name</label>
+                                <input type="text" class="form-control" id="categoryTitle" placeholder="Full Name"
+                                    value="" required="">
+                                <div class="invalid-feedback"> Valid full name is required. </div>
+                            </div>
+                            <div class="col-12 pb-4">
+                                <label for="exampleInputEmail1" class="font-weight-bold">Email address</label>
+                                <input type="email" class="form-control" id="InputEmail"
+                                    aria-describedby="emailHelp" placeholder="Enter email">
+                            </div>
+                            <div class="col-12 pb-4">
+                                <label for="exampleInputPassword1" class="font-weight-bold">Password</label>
+                                <input type="password" class="form-control" id="InputPassword"
+                                    placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center pt-5">
+                            <button class="col-8 btn btn-primary btn-lg btn-block" type="submit"
+                                id="CreateAdminBtn">Create Admin</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!---- End New Admin---->
         </div>
     </div>
 
