@@ -125,7 +125,9 @@ $(document).ready(function () {
   });
   // Event listener to load product list
   $('#prodSubmenu li:first-child').on('click', function () {
-    $('.container').hide();
+    $('#product-cont').hide();
+    $('#category-cont').hide();
+    $('#admin-cont').hide();
     $('#product-table tbody').empty();
     let shop = JSON.parse(localStorage.getItem("shopJSON"));
     shop.products.forEach(product => {
@@ -135,7 +137,9 @@ $(document).ready(function () {
   });
   // Event listener to load category list
   $('#catSubmenu li:first-child').on('click', function () {
-    $('.container').hide();
+    $('#product-cont').hide();
+    $('#category-cont').hide();
+    $('#admin-cont').hide();
     $('#category-table tbody').empty();
     let shop = JSON.parse(localStorage.getItem("shopJSON"));
     shop.categories.forEach(category => {
@@ -145,7 +149,9 @@ $(document).ready(function () {
   });
   // Event listener to load admins list
   $('#adminSubmenu li:first-child').on('click', function () {
-    $('.container').hide();
+    $('#product-cont').hide();
+    $('#category-cont').hide();
+    $('#admin-cont').hide();
     $('#admin-table tbody').empty();
     let shop = JSON.parse(localStorage.getItem("shopJSON"));
     shop.admins.forEach(admin => {
