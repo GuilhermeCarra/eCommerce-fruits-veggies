@@ -52,7 +52,7 @@ function makeCard(products) {
                     )
                 )
             )
-        products.shift();
+            products.shift();
         }
     }
     return cardProduct;
