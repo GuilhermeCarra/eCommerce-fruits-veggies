@@ -247,14 +247,14 @@ table button {
     border: solid 1px black;
 }
 
-#product-cont {
+/* #product-cont {
     display: none;
-}
+} */
 
 #category-cont {
     display: none;
 }
 
-/* #admin-cont {
+#admin-cont {
     display: none;
-} */
+}
