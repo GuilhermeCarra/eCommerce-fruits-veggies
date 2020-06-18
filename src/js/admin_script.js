@@ -157,6 +157,7 @@ $(document).ready(function () {
 
 
 // AUXILIAR FUNCTIONS
+
 function validateLogin() {
   let adminName = "";
 
@@ -203,7 +204,19 @@ function appendAdmin(adminObj) {
   let $btnEdit = $('<td>').html('<i class="fas fa-marker"></i>').appendTo($newRow);
   //TODO: Add event listener to button
   let $btnRemove = $('<td>').html('<i class="fas fa-trash-alt"></i>').appendTo($newRow);
-  //TODO: Add event listener to button
+  // Event listener to remove button
+  $btnRemove.on('click', function () {
+    let id = adminObj.id;
+    let shop = JSON.parse(localStorage.getItem("shopJSON"));
+    for (let i = 0; i < shop.admins.length; i++) {
+      if (shop.admins[i].id == id) {
+        shop.admins.splice(i, 1);
+        break;
+      }
+    }
+    localStorage.setItem("shopJSON", JSON.stringify(shop));
+    $(this).parent().remove();
+  });
   $('#admin-table tbody').append($newRow);
 }
 
@@ -216,7 +229,19 @@ function appendProduct(prodObj) {
   let $btnEdit = $('<td>').html('<i class="fas fa-marker"></i>').appendTo($newRow);
   //TODO: Add event listener to button
   let $btnRemove = $('<td>').html('<i class="fas fa-trash-alt"></i>').appendTo($newRow);
-  //TODO: Add event listener to button
+  // Event listener to remove button
+  $btnRemove.on('click', function () {
+    let id = prodObj.id;
+    let shop = JSON.parse(localStorage.getItem("shopJSON"));
+    for (let i = 0; i < shop.products.length; i++) {
+      if (shop.products[i].id == id) {
+        shop.products.splice(i, 1);
+        break;
+      }
+    }
+    localStorage.setItem("shopJSON", JSON.stringify(shop));
+    $(this).parent().remove();
+  });
   $('#product-table tbody').append($newRow);
 }
 
@@ -228,6 +253,18 @@ function appendCategory(catObj) {
   let $btnEdit = $('<td>').html('<i class="fas fa-marker"></i>').appendTo($newRow);
   //TODO: Add event listener to button
   let $btnRemove = $('<td>').html('<i class="fas fa-trash-alt"></i>').appendTo($newRow);
-  //TODO: Add event listener to button
+  // Event listener to remove button
+  $btnRemove.on('click', function () {
+    let id = catObj.id;
+    let shop = JSON.parse(localStorage.getItem("shopJSON"));
+    for (let i = 0; i < shop.categories.length; i++) {
+      if (shop.categories[i].id == id) {
+        shop.categories.splice(i, 1);
+        break;
+      }
+    }
+    localStorage.setItem("shopJSON", JSON.stringify(shop));
+    $(this).parent().remove();
+  });
   $('#category-table tbody').append($newRow);
 }
