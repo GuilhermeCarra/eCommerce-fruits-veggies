@@ -22,6 +22,17 @@ svg {
     z-index: 1040;
 }
 
+.card-img-top {
+    filter: brightness(95%);
+    cursor: pointer;
+}
+
+.card-img-top:hover {
+    border-radius: 10%;
+    transform: scale(1.1);
+    transition: 200ms;
+}
+
 /* PRODUCT DETAILS PAGE */
 
 .change-qnt:hover {
