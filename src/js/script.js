@@ -55,14 +55,21 @@ function makeCard(products) {
 }
 
 $("#categoryFilter").change(function() {
+    $("#searchInput").val("");
     let filter = $(event.target).val();
-    let filteredProducts = shop.Products.filter(function(product) {
-        if (product.category == filter) return product
-    });
+    let filteredProducts;
+    if ($("#categoryFilter").val() == "all") {
+        filteredProducts = shop.Products;
+    } else {
+        filteredProducts = shop.Products.filter(function(product) {
+            if (product.category == filter) return product
+        });
+    }
     printProducts(filteredProducts)
 });
 
 $("#searchInput").on('input',function(){
+    $("#categoryFilter").val("all");
     let filter = $(event.target).val();
     console.log(filter);
     let filteredProducts = shop.Products.filter(function(product) {
