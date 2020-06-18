@@ -1,7 +1,6 @@
 /* ---------------------------------------------------
     GENERAL STYLES (FROM GUILHERME)
 ----------------------------------------------------- */
-
 body {
     padding-top: 56px;
 }
@@ -171,6 +170,8 @@ form {
 #sidebar ul li a:hover {
     color: #7386D5;
     background: #fff;
+    /* JORGE */
+    text-decoration: none;
 }
 
 #sidebar ul li.active>a,
