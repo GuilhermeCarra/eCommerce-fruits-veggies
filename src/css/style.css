@@ -241,19 +241,17 @@ ul ul a {
 /* ---------------------------------------------------
     MAIN PAGE STYLE
 ----------------------------------------------------- */
-table button {
-    width: 60px;
-    border-radius: 5px;
-    border: solid 1px black;
+table i:hover {
+    cursor: pointer;
 }
 
 #product-cont {
     display: none;
 }
 
-/* #category-cont {
+#category-cont {
     display: none;
-} */
+}
 
 #admin-cont {
     display: none;

@@ -103,6 +103,11 @@ $(document).ready(function () {
   $('#sidebarCollapse').on('click', function () {
     $('#sidebar').toggleClass('active');
     $('#content').toggleClass('active');
+    // Optional
+    $('.list-unstyled').removeClass('show');
+    $('#prodSubmenu').prev().attr('aria-expanded', 'false');
+    $('#catSubmenu').prev().attr('aria-expanded', 'false');
+    $('#adminSubmenu').prev().attr('aria-expanded', 'false');
   });
   // Event listener to validate login form
   var forms = document.getElementsByClassName('form-group');
@@ -117,6 +122,36 @@ $(document).ready(function () {
         $('.wrapper').css('display', 'flex');
       }, 1000)
     }
+  });
+  // Event listener to load product list
+  $('#prodSubmenu li:first-child').on('click', function () {
+    $('.container').hide();
+    $('#product-table tbody').empty();
+    let shop = JSON.parse(localStorage.getItem("shopJSON"));
+    shop.products.forEach(product => {
+      appendProduct(product);
+    })
+    $('#product-cont').show();
+  });
+  // Event listener to load category list
+  $('#catSubmenu li:first-child').on('click', function () {
+    $('.container').hide();
+    $('#category-table tbody').empty();
+    let shop = JSON.parse(localStorage.getItem("shopJSON"));
+    shop.categories.forEach(category => {
+      appendCategory(category);
+    })
+    $('#category-cont').show();
+  });
+  // Event listener to load admins list
+  $('#adminSubmenu li:first-child').on('click', function () {
+    $('.container').hide();
+    $('#admin-table tbody').empty();
+    let shop = JSON.parse(localStorage.getItem("shopJSON"));
+    shop.admins.forEach(admin => {
+      appendAdmin(admin);
+    })
+    $('#admin-cont').show();
   });
 });
 
@@ -165,7 +200,9 @@ function appendAdmin(adminObj) {
   let $name = $('<td>').text(adminObj.name).appendTo($newRow);
   let $surname = $('<td>').text(adminObj.surname).appendTo($newRow);
   let $email = $('<td>').text(adminObj.email).appendTo($newRow);
-  let $btn = $('<td>').html('<button>Edit</button>').appendTo($newRow);
+  let $btnEdit = $('<td>').html('<i class="fas fa-marker"></i>').appendTo($newRow);
+  //TODO: Add event listener to button
+  let $btnRemove = $('<td>').html('<i class="fas fa-trash-alt"></i>').appendTo($newRow);
   //TODO: Add event listener to button
   $('#admin-table tbody').append($newRow);
 }
@@ -176,7 +213,9 @@ function appendProduct(prodObj) {
   let $name = $('<td>').text(prodObj.title).appendTo($newRow);
   let $price = $('<td>').text(prodObj.price).appendTo($newRow);
   let $stock = $('<td>').text(prodObj.stockQty).appendTo($newRow);
-  let $btn = $('<td>').html('<button>Edit</button>').appendTo($newRow);
+  let $btnEdit = $('<td>').html('<i class="fas fa-marker"></i>').appendTo($newRow);
+  //TODO: Add event listener to button
+  let $btnRemove = $('<td>').html('<i class="fas fa-trash-alt"></i>').appendTo($newRow);
   //TODO: Add event listener to button
   $('#product-table tbody').append($newRow);
 }
@@ -186,7 +225,9 @@ function appendCategory(catObj) {
   let $id = $('<td>').text(catObj.id).appendTo($newRow);
   let $name = $('<td>').text(catObj.name).appendTo($newRow);
   let $color = $('<td>').text(catObj.color).appendTo($newRow);
-  let $btn = $('<td>').html('<button>Edit</button>').appendTo($newRow);
+  let $btnEdit = $('<td>').html('<i class="fas fa-marker"></i>').appendTo($newRow);
+  //TODO: Add event listener to button
+  let $btnRemove = $('<td>').html('<i class="fas fa-trash-alt"></i>').appendTo($newRow);
   //TODO: Add event listener to button
   $('#category-table tbody').append($newRow);
 }
