@@ -56,16 +56,23 @@ function makeCard(products) {
 
 function showProduct() {
     let idProduct = $(event.target).data("idProduct");
-    $("#productQnt").text("1");
     let product = JSON.parse(localStorage.getItem("shop")).Products.find(({ id }) => id === idProduct);
-    $("#product_details img").attr("src",product.img).data("idProduct",idProduct);
+    $(".img-thumbnail").removeClass("border-info");
+    $("#productQnt").text("1");
+    $("#detailsMainImg").attr("src",product.img).data("idProduct",idProduct);
     $("#product_details h5").text(product.category+" >");
     $("#details_title").text(product.title);
     $("#details_description").text(product.description);
     $("#details_price").text(product.price+" €/pc");
-    $("#thumb1").attr("src","src/img/"+idProduct+"_thumb1.jpg");
-    $("#thumb1").attr("src","src/img/"+idProduct+"_thumb2.jpg");
-    $("#thumb1").attr("src","src/img/"+idProduct+"_thumb3.jpg");
+    $("#thumb1").attr("src",product.img).addClass("border-info").click(changeThumb);
+    $("#thumb2").attr("src","src/img/"+idProduct+"_thumb2.jpg").click(changeThumb);
+    $("#thumb3").attr("src","src/img/"+idProduct+"_thumb3.jpg").click(changeThumb);
+}
+
+function changeThumb(){
+    $(".img-thumbnail").removeClass("border-info");
+    $(event.target).addClass("border-info");
+    $("#detailsMainImg").attr("src",$(event.target).attr("src"));
 }
 
 $("#restProduct").click(function() {

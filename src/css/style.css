@@ -33,3 +33,12 @@ svg {
 #product_details {
     user-select: none;
 }
+
+#product_details .img-thumbnail {
+    cursor: pointer;
+}
+
+#product_details .img-thumbnail:hover {
+    filter: brightness(95%);
+    transition: 400ms;
+}
