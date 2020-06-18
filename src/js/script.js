@@ -40,7 +40,7 @@ function makeCard(products) {
                     $(img).attr("src",products[0].img).data("idProduct",products[0].id).click(showProduct),
                     $(cardBody).append(
                         $(cardTitle).text(products[0].title),
-                        $(cardText).text(products[0].price)
+                        $(cardText).text(products[0].price+" €/pc")
                         )
                         )
                         )
