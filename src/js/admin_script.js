@@ -40,3 +40,10 @@ function validateLogin() {
   }
   return validated;
 }
+
+
+//Create New Products
+$("#addNewProduct").click(function () {
+    $("#createNewProduct").removeClass("d-none");
+
+})
