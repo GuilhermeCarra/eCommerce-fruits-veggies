@@ -221,12 +221,40 @@ ul ul a {
 }
 
 #content {
-    width: 100%;
+    width: calc(100%);
     padding: 20px;
     /* min-height: 100vh; */
     transition: all 0.3s;
 }
 
+#content.active {
+    width: calc(100% - 250px);
+    padding: 20px;
+    /* min-height: 100vh; */
+    transition: all 0.3s;
+}
+
+#sidebarCollapse {
+    margin-right: 20px;
+}
+
 /* ---------------------------------------------------
     MAIN PAGE STYLE
 ----------------------------------------------------- */
+table button {
+    width: 60px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
+
+#product-cont {
+    display: none;
+}
+
+#category-cont {
+    display: none;
+}
+
+/* #admin-cont {
+    display: none;
+} */

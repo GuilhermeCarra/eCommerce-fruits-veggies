@@ -143,13 +143,177 @@
         <!-- Main content -->
         <div id="content">
             <!-- Sidebar button -->
-            <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <button type="button" id="sidebarCollapse" class="btn btn-info float-left">
                 <svg class="bi bi-text-left" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
                         d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
                 </svg>
             </button>
+            <!-- Product table -->
+            <div class="container" id="product-cont">
+                <div class="row">
+                    <div class="col">
+                        <h4 class="text-center">Products</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="product-table">
+                                <thead>
+                                    <tr>
+                                        <!-- <th scope="col">#</th> -->
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Price [EUR]</th>
+                                        <th scope="col">Stock</th>
+                                        <th scope="col">Unit</th>
+                                        <th scope="col">Edit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <!-- <th scope="row">1</th> -->
+                                        <td>1</td>
+                                        <td>Watermelon</td>
+                                        <td>5.55</td>
+                                        <td>15</td>
+                                        <td>PC</td>
+                                        <td>
+                                            <button>Edit</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <th scope="row">2</th> -->
+                                        <td>2</td>
+                                        <td>Banana</td>
+                                        <td>10.75</td>
+                                        <td>100</td>
+                                        <td>PC</td>
+                                        <td>
+                                            <button>Edit</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <th scope="row">3</th> -->
+                                        <td>3</td>
+                                        <td>Apple</td>
+                                        <td>0.99</td>
+                                        <td>7</td>
+                                        <td>PC</td>
+                                        <td>
+                                            <button>Edit</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category table -->
+            <div class="container" id="category-cont">
+                <div class="row">
+                    <div class="col">
+                        <h4 class="text-center">Categories</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="category-table">
+                                <thead>
+                                    <tr>
+                                        <!-- <th scope="col">#</th> -->
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Color</th>
+                                        <th scope="col">Edit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <!-- <th scope="row">1</th> -->
+                                        <td>1</td>
+                                        <td>Fruits</td>
+                                        <td>Green</td>
+                                        <td>
+                                            <button>Edit</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <th scope="row">2</th> -->
+                                        <td>2</td>
+                                        <td>Vegetables</td>
+                                        <td>Yellow</td>
+                                        <td>
+                                            <button>Edit</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <th scope="row">3</th> -->
+                                        <td>3</td>
+                                        <td>Fish</td>
+                                        <td>Blue</td>
+                                        <td>
+                                            <button>Edit</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin table -->
+            <div class="container" id="admin-cont">
+                <div class="row">
+                    <div class="col">
+                        <h4 class="text-center">Administrators</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="admin-table">
+                                <thead>
+                                    <tr>
+                                        <!-- <th scope="col">#</th> -->
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Surname</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Edit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <!-- <th scope="row">1</th> -->
+                                        <td>1</td>
+                                        <td>Jose</td>
+                                        <td>García López</td>
+                                        <td>jgar@gmail.com</td>
+                                        <td>
+                                            <button>Edit</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <th scope="row">2</th> -->
+                                        <td>2</td>
+                                        <td>Enrique</td>
+                                        <td>Pérez Fernández</td>
+                                        <td>eperezfer@hotmail.com</td>
+                                        <td>
+                                            <button>Edit</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <th scope="row">3</th> -->
+                                        <td>3</td>
+                                        <td>Carmen</td>
+                                        <td>Sánchez Bou</td>
+                                        <td>boucarmen@yahoo.com</td>
+                                        <td>
+                                            <button>Edit</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

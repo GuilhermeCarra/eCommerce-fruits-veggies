@@ -2,6 +2,7 @@ $(document).ready(function () {
   // Event listener to expand/collapse sidebar
   $('#sidebarCollapse').on('click', function () {
     $('#sidebar').toggleClass('active');
+    $('#content').toggleClass('active');
   });
   // Event listener to validate login form
   var forms = document.getElementsByClassName('form-group');
