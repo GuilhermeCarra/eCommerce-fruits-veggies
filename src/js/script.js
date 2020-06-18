@@ -63,7 +63,7 @@ $("#categoryFilter").change(function() {
     let filter = $(event.target).val();
     let filteredProducts;
     if ($("#categoryFilter").val() == "all") {
-        filteredProducts = shop.Products;
+        filteredProducts = [...shop.Products];
     } else {
         filteredProducts = shop.Products.filter(function(product) {
             if (product.category == filter) return product
