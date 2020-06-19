@@ -2,12 +2,13 @@
     GLOBAL VARIABLES
 ----------------------------------------------------- */
 var cart = [];
+var total = 0;
 
-if (localStorage.getItem('shop') == null) {
+if (localStorage.getItem('shopJSON') == null) {
     var shop = [];
-    localStorage.setItem('shop', shop);
+    localStorage.setItem('shopJSON', shop);
 } else {
-    var shop = JSON.parse(localStorage.getItem('shop'));
+    var shop = JSON.parse(localStorage.getItem('shopJSON'));
 }
 
 printProducts();
@@ -80,7 +81,7 @@ $("#searchInput").on('input', function () {
 // When a product is clicked on Home-Screen show the product details on a modal
 function showProduct() {
     let idProduct = $(event.target).data("idProduct");
-    let product = JSON.parse(localStorage.getItem("shop")).Products.find(({
+    let product = JSON.parse(localStorage.getItem("shopJSON")).Products.find(({
         id
     }) => id === idProduct);
     $(".img-thumbnail").removeClass("border-info");
@@ -154,7 +155,6 @@ function showCart () {
     let row = '<div class="row"></div>';
     let cartImage = '<div class="col-4"></div>';
     let divColum = '<div class="col"></div>';
-    let total = 0;
     let cartsProducts = [];
 
     // Retrieving information on localStorage about the itens on cart (price, img)
@@ -165,7 +165,7 @@ function showCart () {
     // Printing each product on cart modal with all the information (price, img, quantity)
     for (let j = 0; j < cartsProducts.length; j++) {
         total += cart[j].quantity * cartsProducts[j].price;
-        let piece = cart[j].quantity > 1 ? "pieces" : "piece";
+        let piece = cart[j].quantity > 1 ? " pieces" : " piece";
         $('#cart-content').append(
                 $(row).attr('data-id', cart[j].id)
                 .append($(cartImage).append('<img class="img-thumbnail" src="' + cartsProducts[j].img + '" />'))
