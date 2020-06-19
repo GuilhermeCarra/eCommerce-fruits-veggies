@@ -45,7 +45,11 @@ svg {
 
 .modal.right .modal-content {
     height: 100%;
-    overflow-y: auto;
+    overflow:none;
+    
+}
+#cart-content{
+    overflow: auto;
 }
 
 .modal.right.fade .modal-dialog {

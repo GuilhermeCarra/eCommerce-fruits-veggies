@@ -117,49 +117,58 @@ $('#cart-modal').click(function () {
       piece = ' piece';
     }
 
-    $('#cart-content').append(
-      $(row)
-        .attr('id', 'row')
-        .attr('data-id', cart[j].id)
-        .append(
-          $(cartImage).append(
-            '<img class="img-thumbnail" src="' + cartsProducts[j].img + '" />'
-          )
-        )
-        .append(
-          $(divColum)
-            .append($('<h6>', { text: cartsProducts[j].title }))
-            .append($('<h6>', { text: cartsProducts[j].price + '\u20ac' }))
-            .append(
-              $('<span>', { text: cart[j].quantity })
-                .append($('<span>', { text: piece }))
-                .append(
-                  $(
-                    '<i id="remove-item" class="fas fa-trash float-right"></i>'
-                  ).attr('data-id', cart[j].id)
-                  // console.log(event.target)
-                )
+    $('#cart-content')
+      .append(
+        $(row)
+          .attr('id', 'row')
+          .attr('data-id', cart[j].id)
+          .append(
+            $(cartImage).append(
+              '<img class="img-thumbnail" src="' + cartsProducts[j].img + '" />'
             )
-        )
-    );
+          )
+          .append(
+            $(divColum)
+              .append($('<h6>', { text: cartsProducts[j].title }))
+              .append($('<h6>', { text: cartsProducts[j].price + '\u20ac' }))
+              .append(
+                $('<span>', { text: cart[j].quantity })
+                  .append($('<span>', { text: piece }))
+                  .append(
+                    $(
+                      '<i id="remove-item" class="fas fa-trash float-right"></i>'
+                    ).attr('data-id', cart[j].id)
+                    // console.log(event.target)
+                  )
+              )
+          )
+      )
+      .append($('<hr class="col-xs-12">'));
   }
 
   $('#cart-total').text(total.toFixed(2) + '\u20ac');
   //   console.log(cartsProducts)
 });
 
-
-
-
-
 $('#cart-content').on('click', '#remove-item', function (e) {
   console.log(e.target);
-  let singlePrice = parseFloat($(this).parent().prev().text())
-  let quantity = parseFloat($(this).parent().text())
-  total = total - singlePrice * quantity
-  $('#cart-total').text(total.toFixed(2) + '\u20ac' )
-  $(this).parent().parent().parent().remove()
+  let id = $(e.target).attr('data-id');
+  console.log(id);
+  // from variable
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].id == id) {
+      console.log(cart[i]);
+      cart.splice(i, 1);
+    }
+  }
+  // html
+  $('div[data-id="' + id + '"]')
+    .next()
+    .remove();
+  $('div[data-id="' + id + '"]').remove();
+  let singlePrice = parseFloat($(this).parent().prev().text());
+  let quantity = parseFloat($(this).parent().text());
+  total = total - singlePrice * quantity;
+  $('#cart-total').text(total.toFixed(2) + '\u20ac');
   $('#cart-content').show();
-  
 });
-
