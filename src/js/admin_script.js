@@ -357,18 +357,32 @@ function getExistingCategories() {
 //Validation add Category
 $("#createCategoryBtn").click(function (e) {
   e.preventDefault();
+
   let isValid = validateCategory();
   if (isValid) {
     //Create object category
-
+    let newId = getHighestId("category") + 1;
+    let newCat = {
+      id: newId,
+      name: $("#categoryTitle").val().trim(),
+      color: $("#chooseColorCategory").val()
+    }
     //Save object in LocalStorage
+    let shop = JSON.parse(localStorage.getItem("shopJSON"));
+    shop.categories.push(newCat)
+    localStorage.setItem("shopJSON", JSON.stringify(shop));
 
     //Hide form
+    $("#createNewCategory").addClass("d-none");
+    $("#categoryTitle").val("");
+    $("#chooseColorCategory").val("Choose Color..");
+    $("#categoryTitle").removeClass("is-valid");
+    $("#chooseColorCategory").removeClass("is-valid");
   }
 })
 
 function validateCategory() {
-  let validated = false; 
+  let validated = false;
   let categoryNameOk = false;
   let categoryColorOk = false;
 
@@ -385,7 +399,7 @@ function validateCategory() {
       found = true;
     }
   })
-  if(categoryTitle != "" && !found) {
+  if (categoryTitle != "" && !found) {
     $("#categoryTitle").removeClass("is-invalid");
     $("#categoryTitle").addClass("is-valid");
     categoryNameOk = true;
@@ -396,14 +410,14 @@ function validateCategory() {
     $("#categoryEx").removeClass("d-none");
   }
   let categoryColor = $("#chooseColorCategory").val();
-  if(categoryColor == "Choose Color.."){
+  if (categoryColor == "Choose Color..") {
     $("#chooseColorCategory").addClass("is-invalid");
-  }else {
+  } else {
     $("#chooseColorCategory").removeClass("is-invalid");
     $("#chooseColorCategory").addClass("is-valid");
     categoryColorOk = true;
   }
-  if(categoryNameOk && categoryColorOk){
+  if (categoryNameOk && categoryColorOk) {
     validated = true;
   }
   return validated;
