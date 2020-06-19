@@ -49,7 +49,7 @@ if (!shop) {
   let prod2 = {
     id: 2,
     title: "Apricot",
-    img: "src/img/apricorn.jpg",
+    img: "src/img/apricot.jpg",
     price: 1.8,
     description: "Basket of apricots 6 units",
     stockQty: 1000,
