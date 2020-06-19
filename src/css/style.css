@@ -90,6 +90,17 @@ svg {
     transition: opacity 0.3s linear, right 0.3s ease-out;
 }
 
+#remove-item {
+    cursor: pointer;
+    color: crimson;
+}
+
+#remove-item:hover {
+    transform: scale(1.5);
+    color: rgb(238, 42, 81);
+    transition: 400ms;
+}
+
 /* ---------------------------------------------------
     LOGIN MODAL STYLE
 ----------------------------------------------------- */
