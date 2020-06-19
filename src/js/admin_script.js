@@ -263,14 +263,27 @@ function appendCategory(catObj) {
   $btnRemove.on('click', function () {
     let id = catObj.id;
     let shop = JSON.parse(localStorage.getItem("shopJSON"));
-    for (let i = 0; i < shop.categories.length; i++) {
-      if (shop.categories[i].id == id) {
-        shop.categories.splice(i, 1);
-        break;
+    let found = false;
+    for (let i = 0; i < shop.products.length; i++) {
+      for (let j = 0; j < shop.products[i].category.length; j++) {
+        if (shop.products[i].category[j] == catObj.name) {
+          found = true;
+          break;
+        }
       }
     }
-    localStorage.setItem("shopJSON", JSON.stringify(shop));
-    $(this).parent().remove();
+    if (!found) {
+      for (let i = 0; i < shop.categories.length; i++) {
+        if (shop.categories[i].id == id) {
+          shop.categories.splice(i, 1);
+          break;
+        }
+      }
+      localStorage.setItem("shopJSON", JSON.stringify(shop));
+      $(this).parent().remove();
+    } else {
+      alert('Deletion is not possible! Category being used by products.\nPlease delete products first.');
+    }
   });
   $('#category-table tbody').append($newRow);
 }
