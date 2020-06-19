@@ -150,8 +150,6 @@ form {
     border-radius: 0;
     border-bottom: 1px solid #aaa;
     padding: 0.5rem .5rem .5rem;
-    /* padding: 1em .5em .5em; */
-    /* padding-left: 2em; */
     outline: none;
     margin: 1.5rem auto 0rem;
     transition: all .5s ease;
@@ -186,7 +184,6 @@ form {
 ----------------------------------------------------- */
 .wrapper {
     display: none;
-    /* display: flex; */
     width: 100%;
     align-items: stretch;
 }
@@ -216,13 +213,10 @@ form {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    /* background: #6d7fcc; */
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    /* border-bottom: 1px solid #47748b; */
-    /* Added Jorge */
     margin-bottom: 0;
 }
 
@@ -241,7 +235,6 @@ form {
 #sidebar ul li a:hover {
     color: #7386D5;
     background: #fff;
-    /* JORGE */
     text-decoration: none;
 }
 
@@ -272,6 +265,36 @@ ul ul a {
 #content {
     width: 100%;
     padding: 20px;
-    /* min-height: 100vh; */
     transition: all 0.3s;
+}
+
+/* ---------------------------------------------------
+    CART MODAL
+----------------------------------------------------- */
+
+.modal.right .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+.modal.right .modal-content {
+    height: 100%;
+    overflow:none;
+}
+#cart-content{
+    overflow: auto;
+}
+
+.modal.right.fade .modal-dialog {
+    right: 0px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
 }
