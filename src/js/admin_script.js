@@ -166,6 +166,12 @@ $(document).ready(function () {
 
 //Create New Products
 $("#addNewProduct").click(function () {
+  // Update category checkboxes
+  $('#cat-cont').empty();
+  let cats = getExistingCategories();
+  cats.forEach(cat => {
+    generateCheckbox(cat);
+  })
 
   $("#createNewCategory").addClass("d-none");
   $("#createNewAdmin").addClass("d-none");
