@@ -23,7 +23,7 @@ function printProducts(filter) {
     $("#products_list").empty();
 
     // Verifying if products are filtered
-    let products = filter == undefined ? [...shop.Products] : filter;
+    let products = filter == undefined ? [...shop.products] : filter;
 
     let emptyCol = '<div class="col-sm-6 col-md-4 col-lg-3 pb-4"></div>';
     let card = '<div class="card"><div>';
@@ -55,10 +55,12 @@ $("#categoryFilter").change(function () {
     let filter = $(event.target).val();
     let filteredProducts;
     if ($("#categoryFilter").val() == "all") {
-        filteredProducts = [...shop.Products];
+        filteredProducts = [...shop.products];
     } else {
-        filteredProducts = shop.Products.filter(function (product) {
-            if (product.category == filter) return product
+        filteredProducts = shop.products.filter(function (product) {
+            for (i = 0; i < product.category.length; i++) {
+                if (product.category[i] == filter) return product
+            }
         });
     }
     printProducts(filteredProducts)
@@ -68,7 +70,7 @@ $("#categoryFilter").change(function () {
 $("#searchInput").on('input', function () {
     $("#categoryFilter").val("all");
     let filter = $(event.target).val();
-    let filteredProducts = shop.Products.filter(function (product) {
+    let filteredProducts = shop.products.filter(function (product) {
         if (product.title.toUpperCase().includes(filter.toUpperCase())) return product
     });
     printProducts(filteredProducts)
@@ -81,13 +83,16 @@ $("#searchInput").on('input', function () {
 // When a product is clicked on Home-Screen show the product details on a modal
 function showProduct() {
     let idProduct = $(event.target).data("idProduct");
-    let product = JSON.parse(localStorage.getItem("shopJSON")).Products.find(({
-        id
-    }) => id === idProduct);
+    let product = shop.products.find( ({id}) => id === idProduct);
+    let ctgrColor = [];
+    $("#product_details_header h2").remove();
     $(".img-thumbnail").removeClass("border-info");
     $("#productQnt").text("1");
     $("#detailsMainImg").attr("src", product.img).data("idProduct", idProduct);
-    $("#product_details h5").text(product.category);
+    for (let i = 0; i < product.category.length; i ++) {
+        ctgrColor.push(shop.categories.find( ({name}) => name === product.category[i]));
+        $("#product_details_header").prepend($('<h2 class="badge modal-title badge-'+ctgrColor[i].color+'">').text(product.category[i]));
+    }
     $("#details_title").text(product.title);
     $("#details_description").text(product.description);
     $("#details_price").text(product.price + " €/pc");
@@ -159,7 +164,7 @@ function showCart () {
 
     // Retrieving information on localStorage about the itens on cart (price, img)
     for (let i = 0; i < cart.length; i++) {
-        cartsProducts.push(shop.Products.find(({id}) => id === cart[i].id));
+        cartsProducts.push(shop.products.find(({id}) => id === cart[i].id));
     }
 
     // Printing each product on cart modal with all the information (price, img, quantity)

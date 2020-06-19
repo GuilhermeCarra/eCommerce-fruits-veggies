@@ -59,6 +59,21 @@ svg {
     transition: 400ms ease-in-out;
 }
 
+.badge-blue {
+    color: #fff;
+    background-color: #007bff;
+}
+
+.badge-green {
+    color: #fff;
+    background-color: greenyellow;
+}
+
+.badge-orange {
+    color: #fff;
+    background-color: orangered;
+}
+
 /* ---------------------------------------------------
     CART MODAL
 ----------------------------------------------------- */
