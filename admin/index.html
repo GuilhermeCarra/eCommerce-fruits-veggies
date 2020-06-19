@@ -17,8 +17,8 @@
 </head>
 
 <body>
-    <!-------------- Login modal --------------------------->
-    <div class="container-fluid">
+    <!-- Login modal -->
+    <div class="container-fluid login-cont">
         <div class="row main-content bg-success text-center">
             <div class="col-md-4 text-center company__info">
                 <!-- <span class="company__logo">
@@ -106,9 +106,9 @@
 
             <ul class="list-unstyled components">
                 <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                    <a href="#prodSubmenu" data-toggle="collapse" aria-expanded="false"
                         class="dropdown-toggle">Products</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <ul class="collapse list-unstyled" id="prodSubmenu">
                         <li>
                             <a href="#" id="productList">Product list</a>
                         </li>
@@ -118,9 +118,9 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                    <a href="#catSubmenu" data-toggle="collapse" aria-expanded="false"
                         class="dropdown-toggle">Categories</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <ul class="collapse list-unstyled" id="catSubmenu">
                         <li>
                             <a href="#" id="categoryList">Category list</a>
                         </li>
@@ -143,10 +143,11 @@
                 </li>
             </ul>
         </nav>
-        <!----------Principal Page------------->
+
+        <!-- Main content -->
         <div id="content">
-            <button type="button" id="sidebarCollapse" class="btn btn-info">
-                <!-- <i class="fas fa-align-left"></i> -->
+            <!-- Sidebar button -->
+            <button type="button" id="sidebarCollapse" class="btn btn-info float-left">
                 <svg class="bi bi-text-left" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -154,7 +155,7 @@
                 </svg>
             </button>
             <!-------------Create New Product-------------->
-            <div class="row d-none" id="createNewProduct" href="#createNewProduct">
+            <div class="row d-none admin-create-container" id="createNewProduct" href="#createNewProduct">
                 <div class="col-2"></div>
                 <div class="col-8 order-md-1 pb-5">
                     <h3 class="mb-3 pl-5 pt-5 pb-4 font-weight-bold">New Product</h3>
@@ -227,7 +228,7 @@
             <div class="col-2"></div>
             <!--End New Product-->
             <!---New Category--->
-            <div class="row justify-content-center d-none" id="createNewCategory" href="#createNewCategory">
+            <div class="row justify-content-center d-none admin-create-container" id="createNewCategory" href="#createNewCategory">
                 <div class="col-8 order-md-1 pb-5">
                     <h3 class="mb-3 pl-5 pt-5 pb-4 font-weight-bold">New Category</h3>
                     <form class="needs-validation" novalidate="">
@@ -235,7 +236,7 @@
                             <div class="col-12 pb-4">
                                 <label for="categoryTitle" class="font-weight-bold">Category Title</label>
                                 <input type="text" class="form-control" id="categoryTitle" placeholder="Title" value=""
-                                    required="">
+                                    required>
                                 <div class="invalid-feedback"> Valid Category is required. </div>
                             </div>
                         </div>
@@ -253,14 +254,14 @@
                         </div>
                         <div class="row justify-content-center pt-5">
                             <button class="col-8 btn btn-primary btn-lg btn-block" type="submit"
-                                id="CreateCategoryBtn">Create Category</button>
+                                id="createCategoryBtn">Create Category</button>
                         </div>
                     </form>
                 </div>
             </div>
             <!--End New Category-->
             <!---- New Admin---->
-            <div class="row justify-content-center d-none" id="createNewAdmin" href="#createNewAdmin">
+            <div class="row justify-content-center d-none admin-create-container" id="createNewAdmin" href="#createNewAdmin">
                 <div class="col-8 order-md-1 pb-5">
                     <h3 class="mb-3 pl-5 pt-5 pb-4 font-weight-bold">New Admin</h3>
                     <form class="needs-validation" novalidate="">
@@ -290,6 +291,196 @@
                 </div>
             </div>
             <!---- End New Admin---->
+            <!-- Product table -->
+            <div class="container admin-table-container d-none" id="product-cont">
+                <div class="row">
+                    <div class="col">
+                        <h4 class="text-center">Products</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover text-nowrap" id="product-table">
+                                <thead>
+                                    <tr>
+                                        <!-- <th scope="col">#</th> -->
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Price [EUR/Unit]</th>
+                                        <th scope="col">Stock</th>
+                                        <th scope="col">Edit</th>
+                                        <th scope="col">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <!-- <th scope="row">1</th> -->
+                                        <td>1</td>
+                                        <td>Watermelon</td>
+                                        <td>5.55</td>
+                                        <td>15</td>
+                                        <td>
+                                            <i class="fas fa-marker"></i>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-trash-alt"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <th scope="row">2</th> -->
+                                        <td>2</td>
+                                        <td>Banana</td>
+                                        <td>10.75</td>
+                                        <td>100</td>
+                                        <td>
+                                            <i class="fas fa-marker"></i>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-trash-alt"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <th scope="row">3</th> -->
+                                        <td>3</td>
+                                        <td>Apple</td>
+                                        <td>0.99</td>
+                                        <td>7</td>
+                                        <td>
+                                            <i class="fas fa-marker"></i>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-trash-alt"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category table -->
+            <div class="container admin-table-container d-none" id="category-cont">
+                <div class="row">
+                    <div class="col">
+                        <h4 class="text-center">Categories</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover text-nowrap" id="category-table">
+                                <thead>
+                                    <tr>
+                                        <!-- <th scope="col">#</th> -->
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Color</th>
+                                        <th scope="col">Edit</th>
+                                        <th scope="col">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <!-- <th scope="row">1</th> -->
+                                        <td>1</td>
+                                        <td>Fruits</td>
+                                        <td>Green</td>
+                                        <td>
+                                            <i class="fas fa-marker"></i>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-trash-alt"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <th scope="row">2</th> -->
+                                        <td>2</td>
+                                        <td>Vegetables</td>
+                                        <td>Yellow</td>
+                                        <td>
+                                            <i class="fas fa-marker"></i>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-trash-alt"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <th scope="row">3</th> -->
+                                        <td>3</td>
+                                        <td>Fish</td>
+                                        <td>Blue</td>
+                                        <td>
+                                            <i class="fas fa-marker"></i>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-trash-alt"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin table -->
+            <div class="container admin-table-container d-none" id="admin-cont">
+                <div class="row">
+                    <div class="col">
+                        <h4 class="text-center">Administrators</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover text-nowrap" id="admin-table">
+                                <thead>
+                                    <tr>
+                                        <!-- <th scope="col">#</th> -->
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Surname</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Edit</th>
+                                        <th scope="col">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <!-- <th scope="row">1</th> -->
+                                        <td>1</td>
+                                        <td>Jose</td>
+                                        <td>García López</td>
+                                        <td>jgar@gmail.com</td>
+                                        <td>
+                                            <i class="fas fa-marker"></i>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-trash-alt"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <th scope="row">2</th> -->
+                                        <td>2</td>
+                                        <td>Enrique</td>
+                                        <td>Pérez Fernández</td>
+                                        <td>eperezfer@hotmail.com</td>
+                                        <td>
+                                            <i class="fas fa-marker"></i>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-trash-alt"></i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- <th scope="row">3</th> -->
+                                        <td>3</td>
+                                        <td>Carmen</td>
+                                        <td>Sánchez Bou</td>
+                                        <td>boucarmen@yahoo.com</td>
+                                        <td>
+                                            <i class="fas fa-marker"></i>
+                                        </td>
+                                        <td>
+                                            <i class="fas fa-trash-alt"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

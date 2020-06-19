@@ -58,6 +58,38 @@ svg {
     filter: brightness(85%);
     transition: 400ms ease-in-out;
 }
+
+/* ---------------------------------------------------
+    CART MODAL
+----------------------------------------------------- */
+
+.modal.right .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+.modal.right .modal-content {
+    height: 100%;
+    overflow:none;
+}
+#cart-content{
+    overflow: auto;
+}
+
+.modal.right.fade .modal-dialog {
+    right: 0px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
 /* ---------------------------------------------------
     LOGIN MODAL STYLE
 ----------------------------------------------------- */
@@ -65,8 +97,15 @@ svg {
     width: 50%;
     border-radius: 20px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, .4);
-    margin: 5em auto;
+    /* margin: 5em auto; */
     display: flex;
+}
+
+.login-cont {
+    min-height: calc(100vh - 56px - 7rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .company__info {
@@ -205,6 +244,7 @@ form {
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
+    min-height: calc(100vh - 56px - 7rem);
 }
 
 #sidebar.active {
@@ -263,38 +303,25 @@ ul ul a {
 }
 
 #content {
-    width: 100%;
+    width: calc(100%);
     padding: 20px;
     transition: all 0.3s;
 }
 
+#content.active {
+    width: calc(100% - 250px);
+    padding: 20px;
+    /* min-height: 100vh; */
+    transition: all 0.3s;
+}
+
+#sidebarCollapse {
+    margin-right: 20px;
+}
+
 /* ---------------------------------------------------
-    CART MODAL
+    MAIN PAGE STYLE
 ----------------------------------------------------- */
-
-.modal.right .modal-dialog {
-    position: fixed;
-    margin: auto;
-    width: 320px;
-    height: 100%;
-    -webkit-transform: translate3d(0%, 0, 0);
-    -ms-transform: translate3d(0%, 0, 0);
-    -o-transform: translate3d(0%, 0, 0);
-    transform: translate3d(0%, 0, 0);
-}
-
-.modal.right .modal-content {
-    height: 100%;
-    overflow:none;
-}
-#cart-content{
-    overflow: auto;
-}
-
-.modal.right.fade .modal-dialog {
-    right: 0px;
-    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
-    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
-    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
-    transition: opacity 0.3s linear, right 0.3s ease-out;
+table i:hover {
+    cursor: pointer;
 }
