@@ -19,19 +19,19 @@ if (!shop) {
   let cat1 = {
     id: 1,
     name: "Fruits",
-    color: "blue"
+    color: "Blue"
   }
   shop.categories.push(cat1);
   let cat2 = {
     id: 2,
     name: "Vegetables",
-    color: "green"
+    color: "Green"
   }
   shop.categories.push(cat2);
   let cat3 = {
     id: 3,
     name: "Juices",
-    color: "orange"
+    color: "Yellow"
   }
   shop.categories.push(cat3);
   let prod1 = {
@@ -159,6 +159,91 @@ $(document).ready(function () {
   });
 });
 
+//Create New Products
+$("#addNewProduct").click(function () {
+
+  $("#createNewCategory").addClass("d-none");
+  $("#createNewAdmin").addClass("d-none");
+  $(".admin-table-container").addClass("d-none");
+
+  $("#createNewProduct").removeClass("d-none");
+});
+
+//Create New Category
+$("#addNewCategory").click(function () {
+  $("#categoryTitle").val("");
+  $("#chooseColorCategory").val("Choose Color..");
+  $("#createNewProduct").addClass("d-none");
+  $("#createNewAdmin").addClass("d-none");
+  $(".admin-table-container").addClass("d-none");
+
+  $("#createNewCategory").removeClass("d-none");
+
+  $('#createCategoryBtn').removeClass('d-none');
+  $('#editCategoryBtn').addClass('d-none');
+});
+
+//Create New Admin
+$("#addNewAdmin").click(function () {
+  $("#createNewProduct").addClass("d-none");
+  $("#createNewCategory").addClass("d-none");
+  $(".admin-table-container").addClass("d-none");
+
+  $("#createNewAdmin").removeClass("d-none");
+})
+
+//Validation add Category
+$("#createCategoryBtn").click(function (e) {
+  e.preventDefault();
+
+  let isValid = validateCategory();
+  if (isValid) {
+    //Create object category
+    let newId = getHighestId("category") + 1;
+    let newCat = {
+      id: newId,
+      name: $("#categoryTitle").val().trim(),
+      color: $("#chooseColorCategory").val()
+    }
+    //Save object in LocalStorage
+    let shop = JSON.parse(localStorage.getItem("shopJSON"));
+    shop.categories.push(newCat)
+    localStorage.setItem("shopJSON", JSON.stringify(shop));
+
+    //Hide form
+    $("#createNewCategory").addClass("d-none");
+    $("#categoryTitle").removeClass("is-valid");
+    $("#chooseColorCategory").removeClass("is-valid");
+  }
+})
+
+// Validation edit Category
+$("#editCategoryBtn").click(function (e) {
+  e.preventDefault();
+
+  let isValid = validateCategory();
+  if (isValid) {
+    let shop = JSON.parse(localStorage.getItem("shopJSON"));
+    shop.categories.forEach(cat => {
+      if (cat.id == $("#categoryTitle").data('catid')) {
+        cat.name = $("#categoryTitle").val().trim();
+        cat.color = $("#chooseColorCategory").val();
+        localStorage.setItem("shopJSON", JSON.stringify(shop));
+      }
+    })
+    // Hide form
+    $("#createNewCategory").addClass("d-none");
+    $("#categoryTitle").removeClass("is-valid");
+    $("#chooseColorCategory").removeClass("is-valid");
+    // Show list
+    $('#category-table tbody').empty();
+    shop.categories.forEach(cat => {
+      appendCategory(cat);
+    })
+    $('#category-cont').removeClass('d-none');
+  }
+})
+
 
 // AUXILIAR FUNCTIONS
 
@@ -198,34 +283,6 @@ function validateLogin() {
   }
   return adminName;
 }
-
-//Create New Products
-$("#addNewProduct").click(function () {
-
-  $("#createNewCategory").addClass("d-none");
-  $("#createNewAdmin").addClass("d-none");
-  $(".admin-table-container").addClass("d-none");
-
-  $("#createNewProduct").removeClass("d-none");
-});
-
-//Create New Category
-$("#addNewCategory").click(function () {
-  $("#createNewProduct").addClass("d-none");
-  $("#createNewAdmin").addClass("d-none");
-  $(".admin-table-container").addClass("d-none");
-
-  $("#createNewCategory").removeClass("d-none");
-});
-
-//Create New Admin
-$("#addNewAdmin").click(function () {
-  $("#createNewProduct").addClass("d-none");
-  $("#createNewCategory").addClass("d-none");
-  $(".admin-table-container").addClass("d-none");
-
-  $("#createNewAdmin").removeClass("d-none");
-})
 
 function appendAdmin(adminObj) {
   let $newRow = $('<tr>');
@@ -283,7 +340,18 @@ function appendCategory(catObj) {
   let $name = $('<td>').text(catObj.name).appendTo($newRow);
   let $color = $('<td>').text(catObj.color).appendTo($newRow);
   let $btnEdit = $('<td>').html('<i class="fas fa-marker"></i>').appendTo($newRow);
-  //TODO: Add event listener to button
+  //Event listener to edit button
+  $btnEdit.on('click', function () {
+    // Show/hide corresponding windows
+    $('#category-cont').addClass('d-none');
+    $('#createCategoryBtn').addClass('d-none');
+    $('#editCategoryBtn').removeClass('d-none');
+    $("#createNewCategory").removeClass("d-none");
+    // Recover object values into the form
+    $("#categoryTitle").val(catObj.name);
+    $("#categoryTitle").attr('data-catId', catObj.id);
+    $("#chooseColorCategory").val(catObj.color);
+  })
   let $btnRemove = $('<td>').html('<i class="fas fa-trash-alt"></i>').appendTo($newRow);
   // Event listener to remove button
   $btnRemove.on('click', function () {
@@ -354,32 +422,7 @@ function getExistingCategories() {
 }
 
 
-//Validation add Category
-$("#createCategoryBtn").click(function (e) {
-  e.preventDefault();
 
-  let isValid = validateCategory();
-  if (isValid) {
-    //Create object category
-    let newId = getHighestId("category") + 1;
-    let newCat = {
-      id: newId,
-      name: $("#categoryTitle").val().trim(),
-      color: $("#chooseColorCategory").val()
-    }
-    //Save object in LocalStorage
-    let shop = JSON.parse(localStorage.getItem("shopJSON"));
-    shop.categories.push(newCat)
-    localStorage.setItem("shopJSON", JSON.stringify(shop));
-
-    //Hide form
-    $("#createNewCategory").addClass("d-none");
-    $("#categoryTitle").val("");
-    $("#chooseColorCategory").val("Choose Color..");
-    $("#categoryTitle").removeClass("is-valid");
-    $("#chooseColorCategory").removeClass("is-valid");
-  }
-})
 
 function validateCategory() {
   let validated = false;
