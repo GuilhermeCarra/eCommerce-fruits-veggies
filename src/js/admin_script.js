@@ -118,7 +118,7 @@ $(document).ready(function () {
     if (adminName != "") {
       setTimeout(function () {
         $('.sidebar-header h3').text('Welcome ' + adminName + "!");
-        $('.main-content').hide();
+        $('.login-cont').hide();
         $('.wrapper').css('display', 'flex');
       }, 1000)
     }
