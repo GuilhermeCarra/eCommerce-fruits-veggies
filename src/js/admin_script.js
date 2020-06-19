@@ -103,7 +103,7 @@ $(document).ready(function () {
   $('#sidebarCollapse').on('click', function () {
     $('#sidebar').toggleClass('active');
     $('#content').toggleClass('active');
-    // Optional
+    // Optional sidebar
     $('.list-unstyled').removeClass('show');
     $('#prodSubmenu').prev().attr('aria-expanded', 'false');
     $('#catSubmenu').prev().attr('aria-expanded', 'false');
@@ -286,4 +286,43 @@ function appendCategory(catObj) {
     }
   });
   $('#category-table tbody').append($newRow);
+}
+
+function getHighestId(objType) {
+  let shop = JSON.parse(localStorage.getItem("shopJSON"));
+  let highestId = 0;
+  switch (objType) {
+    case 'product':
+      shop.products.forEach(product => {
+        if (product.id > highestId) {
+          highestId = product.id;
+        }
+      })
+      break;
+    case 'category':
+      shop.categories.forEach(category => {
+        if (category.id > highestId) {
+          highestId = category.id;
+        }
+      })
+      break;
+    case 'admin':
+      shop.admins.forEach(admin => {
+        if (admin.id > highestId) {
+          highestId = admin.id;
+        }
+      });
+  }
+  return highestId;
+}
+
+function getExistingCategories() {
+  let shop = JSON.parse(localStorage.getItem("shopJSON"));
+  let cats = [];
+  shop.categories.forEach(cat => {
+    if (!cats.includes(cat.name)) {
+      cats.push(cat.name);
+    }
+  })
+  return cats;
 }
