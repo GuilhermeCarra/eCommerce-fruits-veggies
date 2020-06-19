@@ -13,10 +13,83 @@ body {
     background-color: #e9ecef !important;
 }
 
-.dropdown-menu {
-    width: 300px !important;
-    height: 400px !important;
+svg {
+    cursor: pointer;
 }
+
+/* ------------------------------------------------
+    USER HOME-PAGE
+--------------------------------------------------- */
+
+#filter_bar {
+    z-index: 1040;
+}
+
+.card-img-top {
+    filter: brightness(95%);
+    cursor: pointer;
+}
+
+.card-img-top:hover {
+    border-radius: 10%;
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.267) -1px 1px 4px 0px;
+    transition: 200ms ease-in-out;
+}
+
+/* ------------------------------------------------
+    PRODUCT DETAILS PAGE
+--------------------------------------------------- */
+
+.change-qnt:hover {
+    transform: scale(1.2);
+    transition: 400ms ease-in-out;
+}
+
+#product_details {
+    user-select: none;
+}
+
+#product_details .img-thumbnail {
+    cursor: pointer;
+}
+
+#product_details .img-thumbnail:hover {
+    filter: brightness(85%);
+    transition: 400ms ease-in-out;
+}
+
+/* ---------------------------------------------------
+    CART MODAL
+----------------------------------------------------- */
+
+.modal.right .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+.modal.right .modal-content {
+    height: 100%;
+    overflow:none;
+}
+#cart-content{
+    overflow: auto;
+}
+
+.modal.right.fade .modal-dialog {
+    right: 0px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
 /* ---------------------------------------------------
     LOGIN MODAL STYLE
 ----------------------------------------------------- */
@@ -24,8 +97,15 @@ body {
     width: 50%;
     border-radius: 20px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, .4);
-    margin: 5em auto;
+    /* margin: 5em auto; */
     display: flex;
+}
+
+.login-cont {
+    min-height: calc(100vh - 56px - 7rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .company__info {
@@ -109,8 +189,6 @@ form {
     border-radius: 0;
     border-bottom: 1px solid #aaa;
     padding: 0.5rem .5rem .5rem;
-    /* padding: 1em .5em .5em; */
-    /* padding-left: 2em; */
     outline: none;
     margin: 1.5rem auto 0rem;
     transition: all .5s ease;
@@ -145,7 +223,6 @@ form {
 ----------------------------------------------------- */
 .wrapper {
     display: none;
-    /* display: flex; */
     width: 100%;
     align-items: stretch;
 }
@@ -167,6 +244,7 @@ form {
     background: #7386D5;
     color: #fff;
     transition: all 0.3s;
+    min-height: calc(100vh - 56px - 7rem);
 }
 
 #sidebar.active {
@@ -175,13 +253,10 @@ form {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    /* background: #6d7fcc; */
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    /* border-bottom: 1px solid #47748b; */
-    /* Added Jorge */
     margin-bottom: 0;
 }
 
@@ -200,7 +275,6 @@ form {
 #sidebar ul li a:hover {
     color: #7386D5;
     background: #fff;
-    /* JORGE */
     text-decoration: none;
 }
 
@@ -229,8 +303,25 @@ ul ul a {
 }
 
 #content {
-    width: 100%;
+    width: calc(100%);
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+#content.active {
+    width: calc(100% - 250px);
     padding: 20px;
     /* min-height: 100vh; */
     transition: all 0.3s;
+}
+
+#sidebarCollapse {
+    margin-right: 20px;
+}
+
+/* ---------------------------------------------------
+    MAIN PAGE STYLE
+----------------------------------------------------- */
+table i:hover {
+    cursor: pointer;
 }
