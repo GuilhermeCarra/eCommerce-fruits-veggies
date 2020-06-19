@@ -76,9 +76,10 @@ svg {
 
 .modal.right .modal-content {
     height: 100%;
-    overflow:none;
+    overflow: none;
 }
-#cart-content{
+
+#cart-content {
     overflow: auto;
 }
 
@@ -216,6 +217,14 @@ form {
 .login-btn:focus {
     background-color: #008080;
     color: #fff;
+}
+
+select.form-control:valid {
+    background-position: right calc(.75em + .375em + .1875rem) center;
+}
+
+select.form-control:invalid {
+    background-position: right calc(.75em + .375em + .1875rem) center;
 }
 
 /* ---------------------------------------------------

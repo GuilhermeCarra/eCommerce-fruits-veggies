@@ -157,6 +157,11 @@ $(document).ready(function () {
     })
     $('#admin-cont').removeClass("d-none");
   });
+  // Event listener to hide all result windows
+  $('.bi-emoji-smile-upside-down').on('click', function () {
+    $('.admin-create-container').addClass('d-none');
+    $('.admin-table-container').addClass('d-none');
+  })
 });
 
 //Create New Products
@@ -173,6 +178,11 @@ $("#addNewProduct").click(function () {
 $("#addNewCategory").click(function () {
   $("#categoryTitle").val("");
   $("#chooseColorCategory").val("Choose Color..");
+  $("#categoryTitle").removeClass("is-valid");
+  $("#chooseColorCategory").removeClass("is-valid");
+  $("#categoryTitle").removeClass("is-invalid");
+  $("#chooseColorCategory").removeClass("is-invalid");
+
   $("#createNewProduct").addClass("d-none");
   $("#createNewAdmin").addClass("d-none");
   $(".admin-table-container").addClass("d-none");
@@ -212,8 +222,6 @@ $("#createCategoryBtn").click(function (e) {
 
     //Hide form
     $("#createNewCategory").addClass("d-none");
-    $("#categoryTitle").removeClass("is-valid");
-    $("#chooseColorCategory").removeClass("is-valid");
   }
 })
 
@@ -221,13 +229,15 @@ $("#createCategoryBtn").click(function (e) {
 $("#editCategoryBtn").click(function (e) {
   e.preventDefault();
 
-  let isValid = validateCategory();
+  let isValid = validateEditedCat();
   if (isValid) {
     let shop = JSON.parse(localStorage.getItem("shopJSON"));
     shop.categories.forEach(cat => {
       if (cat.id == $("#categoryTitle").data('catid')) {
         cat.name = $("#categoryTitle").val().trim();
         cat.color = $("#chooseColorCategory").val();
+        $("#categoryTitle").removeData('catid');
+        $("#categoryTitle").removeAttr('data-catid');
         localStorage.setItem("shopJSON", JSON.stringify(shop));
       }
     })
@@ -347,6 +357,10 @@ function appendCategory(catObj) {
     $('#createCategoryBtn').addClass('d-none');
     $('#editCategoryBtn').removeClass('d-none');
     $("#createNewCategory").removeClass("d-none");
+    $("#categoryTitle").removeClass("is-valid");
+    $("#chooseColorCategory").removeClass("is-valid");
+    $("#categoryTitle").removeClass("is-invalid");
+    $("#chooseColorCategory").removeClass("is-invalid");
     // Recover object values into the form
     $("#categoryTitle").val(catObj.name);
     $("#categoryTitle").attr('data-catId', catObj.id);
@@ -442,6 +456,53 @@ function validateCategory() {
       found = true;
     }
   })
+  if (categoryTitle != "" && !found) {
+    $("#categoryTitle").removeClass("is-invalid");
+    $("#categoryTitle").addClass("is-valid");
+    categoryNameOk = true;
+  }
+  if (found) {
+    $("#categoryTitle").addClass("is-invalid");
+    $("#categoryEmpty").addClass("d-none");
+    $("#categoryEx").removeClass("d-none");
+  }
+  let categoryColor = $("#chooseColorCategory").val();
+  if (categoryColor == "Choose Color..") {
+    $("#chooseColorCategory").addClass("is-invalid");
+  } else {
+    $("#chooseColorCategory").removeClass("is-invalid");
+    $("#chooseColorCategory").addClass("is-valid");
+    categoryColorOk = true;
+  }
+  if (categoryNameOk && categoryColorOk) {
+    validated = true;
+  }
+  return validated;
+}
+
+function validateEditedCat() {
+  let id = $("#categoryTitle").data('catid');
+
+  let validated = false;
+  let categoryNameOk = false;
+  let categoryColorOk = false;
+
+  let categoryTitle = $("#categoryTitle").val().trim();
+  if (categoryTitle == "") {
+    $("#categoryTitle").addClass("is-invalid");
+    $("#categoryEx").addClass("d-none");
+    $("#categoryEmpty").removeClass("d-none");
+  }
+  let shop = JSON.parse(localStorage.getItem("shopJSON"));
+  let found = false;
+  for (let i = 0; i < shop.categories.length; i++) {
+    if (shop.categories[i].id == id) {
+      continue;
+    } else if (shop.categories[i].name == categoryTitle) {
+      found = true;
+      break;
+    }
+  }
   if (categoryTitle != "" && !found) {
     $("#categoryTitle").removeClass("is-invalid");
     $("#categoryTitle").addClass("is-valid");
