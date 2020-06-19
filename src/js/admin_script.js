@@ -127,7 +127,7 @@ $(document).ready(function () {
   $('#prodSubmenu li:first-child').on('click', function () {
     $(".admin-create-container").addClass("d-none");
     $(".admin-table-container").addClass("d-none");
-  
+
     $('#product-table tbody').empty();
     let shop = JSON.parse(localStorage.getItem("shopJSON"));
     shop.products.forEach(product => {
@@ -201,12 +201,12 @@ function validateLogin() {
 
 //Create New Products
 $("#addNewProduct").click(function () {
-  
+
   $("#createNewCategory").addClass("d-none");
   $("#createNewAdmin").addClass("d-none");
   $(".admin-table-container").addClass("d-none");
 
-    $("#createNewProduct").removeClass("d-none");
+  $("#createNewProduct").removeClass("d-none");
 });
 
 //Create New Category
@@ -224,7 +224,7 @@ $("#addNewAdmin").click(function () {
   $("#createNewCategory").addClass("d-none");
   $(".admin-table-container").addClass("d-none");
 
-$("#createNewAdmin").removeClass("d-none");
+  $("#createNewAdmin").removeClass("d-none");
 })
 
 function appendAdmin(adminObj) {
@@ -355,9 +355,10 @@ function getExistingCategories() {
 
 
 //Validation add Category
-$("#createCategoryBtn").click(function () {
+$("#createCategoryBtn").click(function (e) {
+  e.preventDefault();
   let isValid = validateCategory();
-  if(isValid){
+  if (isValid) {
     //Create object category
 
     //Save object in LocalStorage
@@ -367,5 +368,43 @@ $("#createCategoryBtn").click(function () {
 })
 
 function validateCategory() {
-  let categoryTitle = $("#categoryTitle").val();
+  let validated = false; 
+  let categoryNameOk = false;
+  let categoryColorOk = false;
+
+  let categoryTitle = $("#categoryTitle").val().trim();
+  if (categoryTitle == "") {
+    $("#categoryTitle").addClass("is-invalid");
+    $("#categoryEx").addClass("d-none");
+    $("#categoryEmpty").removeClass("d-none");
+  }
+  let shop = JSON.parse(localStorage.getItem("shopJSON"));
+  let found = false;
+  shop.categories.forEach(cat => {
+    if (cat.name == categoryTitle) {
+      found = true;
+    }
+  })
+  if(categoryTitle != "" && !found) {
+    $("#categoryTitle").removeClass("is-invalid");
+    $("#categoryTitle").addClass("is-valid");
+    categoryNameOk = true;
+  }
+  if (found) {
+    $("#categoryTitle").addClass("is-invalid");
+    $("#categoryEmpty").addClass("d-none");
+    $("#categoryEx").removeClass("d-none");
+  }
+  let categoryColor = $("#chooseColorCategory").val();
+  if(categoryColor == "Choose Color.."){
+    $("#chooseColorCategory").addClass("is-invalid");
+  }else {
+    $("#chooseColorCategory").removeClass("is-invalid");
+    $("#chooseColorCategory").addClass("is-valid");
+    categoryColorOk = true;
+  }
+  if(categoryNameOk && categoryColorOk){
+    validated = true;
+  }
+  return validated;
 }
