@@ -526,3 +526,16 @@ function validateEditedCat() {
   }
   return validated;
 }
+
+function generateCheckbox(str) {
+  let $div = $('<div>').addClass('form-check form-check-inline');
+  let $input = $('<input>').addClass('form-check-input');
+  $input.attr('type', 'checkbox');
+  $input.attr('id', str);
+  $input.attr('value', str);
+  let $label = $('<label>').addClass('form-check-label');
+  $label.attr('for', $input.attr('id'));
+  $label.text(str);
+  $div.append($input).append($label);
+  $('#cat-cont').append($div);
+}
