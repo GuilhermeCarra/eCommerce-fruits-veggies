@@ -3,11 +3,11 @@
 ----------------------------------------------------- */
 var cart = [];
 
-if (localStorage.getItem('shop') == null) {
+if (localStorage.getItem('shopJSON') == null) {
     var shop = [];
-    localStorage.setItem('shop', shop);
+    localStorage.setItem('shopJSON', shop);
 } else {
-    var shop = JSON.parse(localStorage.getItem('shop'));
+    var shop = JSON.parse(localStorage.getItem('shopJSON'));
 }
 
 printProducts();
@@ -80,7 +80,7 @@ $("#searchInput").on('input', function () {
 // When a product is clicked on Home-Screen show the product details on a modal
 function showProduct() {
     let idProduct = $(event.target).data("idProduct");
-    let product = JSON.parse(localStorage.getItem("shop")).Products.find(({
+    let product = JSON.parse(localStorage.getItem("shopJSON")).Products.find(({
         id
     }) => id === idProduct);
     $(".img-thumbnail").removeClass("border-info");
