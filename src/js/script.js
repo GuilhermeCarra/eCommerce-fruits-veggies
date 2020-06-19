@@ -161,6 +161,7 @@ $('#cart-content').on('click', '#remove-item', function (e) {
       cart.splice(i, 1);
     }
   }
+  
   // html
   $('div[data-id="' + id + '"]')
     .next()
@@ -172,3 +173,4 @@ $('#cart-content').on('click', '#remove-item', function (e) {
   $('#cart-total').text(total.toFixed(2) + '\u20ac');
   $('#cart-content').show();
 });
+
