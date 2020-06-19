@@ -24,7 +24,7 @@ function printProducts(filter) {
     } else {
         products = [...shop.Products];
     }
-    let emptyCol = '<div class="col-lg-3 pb-4"></div>';
+    let emptyCol = '<div class="col-sm-6 col-md-4 col-lg-3 pb-4"></div>';
     let card = '<div class="card"><div>';
     let img = '<img src="" class="card-img-top" data-toggle="modal" data-target="#product_details">';
     let cardBody = '<div class="card-body"></div>';
