@@ -44,6 +44,7 @@ function validateLogin() {
 
 //Create New Products
 $("#addNewProduct").click(function () {
+  
   $("#createNewCategory").addClass("d-none");
   $("#createNewAdmin").addClass("d-none");
 
@@ -65,3 +66,22 @@ $("#addNewAdmin").click(function () {
 
 $("#createNewAdmin").removeClass("d-none");
 })
+
+
+
+//Validation add Category
+$("#createCategoryBtn").click(function () {
+  let isValid = validateCategory();
+  if(isValid){
+    //Create object category
+
+    //Save object in LocalStorage
+
+    //Hide form
+  }
+})
+
+function validateCategory() {
+  let categoryTitle = $("#categoryTitle").val();
+}
+
