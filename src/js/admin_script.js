@@ -284,6 +284,41 @@ $("#createProdBtn").on("click", function (e) {
   }
 });
 
+// Validation edit product
+$("#editProdBtn").on("click", function (e) {
+  e.preventDefault();
+
+  let results = validateProduct();
+  let isValid = results[0];
+  let categories = results[1];
+  if (isValid) {
+    // Load object from local storage
+    let shop = JSON.parse(localStorage.getItem("shopJSON"));
+    shop.products.forEach((prod) => {
+      if (prod.id == $("#productTitle").data("prodid")) {
+        prod.title = $("#productTitle").val().trim();
+        prod.price = parseFloat($("#productPrice").val().trim());
+        prod.img = $("#imgUrl").val().trim();
+        prod.description = $("#productDescription").val().trim();
+        prod.stockQty = parseFloat($("#itemsStock").val().trim());
+        prod.category = categories;
+        $("#productTitle").removeData("prodid");
+        $("#productTitle").removeAttr("data-prodid");
+        localStorage.setItem("shopJSON", JSON.stringify(shop));
+      }
+    });
+    // Hide form
+    $("#createNewProduct").addClass("d-none");
+    $("#createNewProduct .form-control").removeClass("is-valid");
+    // Show list
+    $("#product-table tbody").empty();
+    shop.products.forEach((prod) => {
+      appendProduct(prod);
+    });
+    $("#product-cont").removeClass("d-none");
+  }
+});
+
 // AUXILIAR FUNCTIONS
 
 function validateLogin() {
@@ -377,6 +412,7 @@ function appendProduct(prodObj) {
     });
     // Recover object values into the form
     $("#productTitle").val(prodObj.title);
+    $("#productTitle").attr("data-prodId", prodObj.id);
     $("#productPrice").val(prodObj.price);
     $("#imgUrl").val(prodObj.img);
     $("#productDescription").val(prodObj.description);
