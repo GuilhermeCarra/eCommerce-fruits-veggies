@@ -179,30 +179,40 @@ $("#addNewProduct").click(function () {
 
 //Create New Category
 $("#addNewCategory").click(function () {
+  // Clear inputs
   $("#categoryTitle").val("");
   $("#chooseColorCategory").val("Choose Color..");
-  $("#categoryTitle").removeClass("is-valid");
-  $("#chooseColorCategory").removeClass("is-valid");
-  $("#categoryTitle").removeClass("is-invalid");
-  $("#chooseColorCategory").removeClass("is-invalid");
-
+  // Remove valid/invalid warnings
+  $("#createNewCategory .form-control").removeClass("is-valid");
+  $("#createNewCategory .form-control").removeClass("is-invalid");
+  // Show/hide corresponding windows
   $("#createNewProduct").addClass("d-none");
   $("#createNewAdmin").addClass("d-none");
   $(".admin-table-container").addClass("d-none");
-
   $("#createNewCategory").removeClass("d-none");
-
   $("#createCategoryBtn").removeClass("d-none");
   $("#editCategoryBtn").addClass("d-none");
 });
 
 //Create New Admin
 $("#addNewAdmin").click(function () {
+  // Clear inputs
+  $("#createNewAdmin .form-control").val("");
+  // Remove valid/invalid warnings
+  $("#createNewAdmin .form-control").removeClass("is-valid");
+  $("#createNewAdmin .form-control").removeClass("is-invalid");
+  // Show/hide corresponding windows
   $("#createNewProduct").addClass("d-none");
   $("#createNewCategory").addClass("d-none");
   $(".admin-table-container").addClass("d-none");
-
   $("#createNewAdmin").removeClass("d-none");
+  $("#createAdminBtn").removeClass("d-none");
+  $("#editAdminBtn").addClass("d-none");
+});
+
+// Validation add Admin
+$("#createAdminBtn").click(function (e) {
+  e.preventDefault();
 });
 
 //Validation add Category
