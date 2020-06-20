@@ -143,6 +143,9 @@ $("#addCartBtn").click(function () {
             quantity: quantity
         };
         cart.push(buy);
+        // Refreshing the number indication of products in cart (CART BUTTON)
+        $("#itemsCartNum").text(parseInt($("#itemsCartNum").text())+1);
+        $("#itemsCartNum").removeClass("d-none");
     }
     $('#product_details').modal('hide');
 });
@@ -205,6 +208,10 @@ $('#cart-content').on('click', '#remove-item', function (e) {
     total = total - singlePrice * quantity;
     $('#cart-total').text(total.toFixed(2) + '\u20ac');
     $('#cart-content').show();
+
+    // Refreshing the number indication of products in cart (CART BUTTON)
+    $("#itemsCartNum").text(parseInt($("#itemsCartNum").text())-1);
+    if (cart.length <1) $("#itemsCartNum").addClass("d-none");
 });
 
 /* ---------------------------------------------------
