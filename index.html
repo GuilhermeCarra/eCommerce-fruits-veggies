@@ -119,6 +119,7 @@
             <svg class="bi bi-cart3" width="2.2em" height="2.2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
             </svg>
+            <span class="badge badge-dark d-none">4</span>
         </button>
         </div>
         <div class="col"></div>
@@ -197,30 +198,112 @@
         </div>
     </div> <!-- Product Details Modal -->
 
-    <!-- Order Summary Modal -->
-    <div class="modal fade" id="order_summary" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registration_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Thank for your order!</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Order Summary - Register</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col">Your Order</div>
-                        <div class="col">Payment Details</div>
+                    <div class="row" id="registration_page">
+                        <form id="register-validation" class="needs-validation" novalidate>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inutName">Name</label>
+                                    <input type="text" class="form-control" id="inputName" placeholder="Name" required>
+                                    <div class="valid-feedback">Looks good!</div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputSurname">Surname</label>
+                                    <input type="text" class="form-control" id="inputSurname" placeholder="Surname" required>
+                                    <div class="valid-feedback">Looks good!</div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email" required>
+                                    <div class="invalid-feedback">Please insert a valid email.</div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPhone">Phone Number</label>
+                                    <input type="tel" class="form-control" id="inputPhone" placeholder="000-00-00-00" required>
+                                    <div class="invalid-feedback">Please insert a valid phone.</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAddress">Address</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAddress2">Country</label>
+                                <input type="text" class="form-control" id="inputAddress2" placeholder="" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity">City</label>
+                                    <input type="text" class="form-control" id="inputCity" required>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputState">State</label>
+                                    <input type="text" id="inputState" class="form-control" required>
+                                </input>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="inputZip">Zip</label>
+                                    <input type="text" class="form-control" id="inputZip" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary d-none" id="submitRegistrationHidden">Sign in</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="submitRegistration">Sign in</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Registration Modal -->
+
+    <!-- Thank you for your order modal -->
+    <div class="modal fade" id="summary_finish" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="staticBackdropLabel">Thank you for your order!</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row px-4 align-items-center" id="summary_page">
+                        <div class="col-7 border rounded">
+                            <h4 class="my-3">Your Order <i class="fas fa-shopping-bag"></i></h4>
+                            <div class="row" id="summary_products">
+                                <!-- Purchased products printed dynamically -->
+                            </div>
+                        </div>
+                        <div class="col ml-4 border py-4 rounded">
+                            <h4>Payment Details <i class="far fa-credit-card"></i></h4>
+                            <hr>
+                            <h6>Subtotal:<span id="summary_subtotal" class="float-right"></span></h6>
+                            <h6>Shipping Price:<span id="summary_shipping" class="float-right">0.00€</span></h6>
+                            <hr>
+                            <h6>Total:<span id="summary_total" class="float-right"></span></h6>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
                 </div>
             </div>
         </div>
-    </div> <!-- Order Summary Modal -->
+    </div> <!-- Thank you for your order modal -->
 
     <!-- Modal Cart-Open  -->
     <div class="modal right fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
@@ -258,7 +341,7 @@
         </div>
         <div class="row">
             <div class="col-11 m-3">
-                <button type="button" class="btn btn-success btn-lg btn-block">Checkout</button>
+                <button id="checkoutBtn" type="button" class="btn btn-success btn-lg btn-block" data-placement="top" data-toggle="popover" title="Ooooops!!!" data-content="Your cart is empty. Let's buy something!">Checkout</button>
             </div>
         </div>
     </div>  <!-- Modal Cart-Open  -->

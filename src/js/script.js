@@ -153,10 +153,11 @@ $("#addCartBtn").click(function () {
 
 $('#cart-modal').click(showCart);
 
-function showCart () {
+function showCart() {
     // Emptying cart modal HTML to not repeat the same products
     $('#cart-content').empty();
 
+    total = 0;
     let row = '<div class="row"></div>';
     let cartImage = '<div class="col-4"></div>';
     let divColum = '<div class="col"></div>';
@@ -205,3 +206,80 @@ $('#cart-content').on('click', '#remove-item', function (e) {
     $('#cart-total').text(total.toFixed(2) + '\u20ac');
     $('#cart-content').show();
 });
+
+/* ---------------------------------------------------
+    SUMMARY PAGE - CHECKOUT
+----------------------------------------------------- */
+
+$("#checkoutBtn").click(function() {
+    if (cart.length == 0) {
+        $('#checkoutBtn').popover('enable')
+        $('#checkoutBtn').popover('show')
+    } else {
+        $('#checkoutBtn').popover('disable')
+        $('#cartModal').modal("hide");
+        $('#registration_modal').modal();
+    }
+});
+
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (form.checkValidity() === false) {
+                event.stopPropagation();
+            } else {
+                $('#registration_modal').modal("hide");
+                showSummary();
+            }
+        form.classList.add('was-validated');
+        }, false);
+    });
+    }, false);
+})();
+
+$("#submitRegistration").click(function(){
+    $("#submitRegistrationHidden").click();
+});
+
+function showSummary(){
+        refreshStock();
+        $('form').get(0).reset();
+        $("#summary_products").empty();
+        $('#summary_finish').modal();
+
+        let emptyCol = '<div class="col-6 mb-3"></div>';
+        let cartsProducts = [];
+        // Retrieving information on localStorage about the itens on cart (price, img)
+        for (let i = 0; i < cart.length; i++) {
+            cartsProducts.push(shop.products.find(({id}) => id === cart[i].id));
+        }
+        for (let j = 0; j < cartsProducts.length; j++) {
+            let pieceNumber = cart[j].quantity > 1 ? "pieces" : "piece";
+            $("#summary_products").append(
+                $(emptyCol).append(
+                    $('<img class="img-thumbnail col-5 float-left" src="' + cartsProducts[j].img + '" />'),
+                    $('<h6 class="col-7 float-right mb-0">').text(cartsProducts[j].title),
+                    $('<small class="col-7 float-right d-block">').text(cartsProducts[j].price+" €/pc"),
+                    $('<small class="col-7 float-right">').text(cart[j].quantity+" "+pieceNumber)
+                )
+            );
+        }
+        $("#summary_subtotal").text(total.toFixed(2)+" €");
+        $("#summary_total").text(total.toFixed(2)+" €");
+        cart = [];
+};
+
+function refreshStock() {
+    for (let i = 0; i < cart.length; i++) {
+        var product = shop.products.find(function(cartProduct) {
+            return cartProduct.id == cart[i].id
+        });
+        product.stockQty -= cart[i].quantity;
+    }
+}
