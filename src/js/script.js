@@ -280,6 +280,9 @@ function showSummary(){
         $("#summary_subtotal").text(total.toFixed(2)+" €");
         $("#summary_total").text(total.toFixed(2)+" €");
         cart = [];
+        // Refreshing the number indication of products in cart (CART BUTTON)
+        $("#itemsCartNum").text("0");
+        $("#itemsCartNum").addClass("d-none");
 };
 
 function refreshStock() {
