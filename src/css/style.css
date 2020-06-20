@@ -13,6 +13,22 @@ body {
     background-color: #e9ecef !important;
 }
 
+.bg-color1 {
+    background-color: #FAE6B1 !important;
+}
+
+.bg-color2 {
+    background-color: #FFA101 !important;
+}
+
+.bg-color3 {
+    background-color: #B3DEE5 !important;
+}
+
+.bg-color4 {
+    background-color: #31525B !important;
+}
+
 svg {
     cursor: pointer;
 }
