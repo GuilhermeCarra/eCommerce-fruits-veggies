@@ -174,6 +174,7 @@ $("#addNewProduct").click(function () {
   $(".admin-table-container").addClass("d-none");
   $("#createNewProduct").removeClass("d-none");
   $("#editProdBtn").addClass("d-none");
+  $("#createProdBtn").removeClass("d-none");
 });
 
 //Create New Category
@@ -357,10 +358,40 @@ function appendProduct(prodObj) {
   let $name = $("<td>").text(prodObj.title).appendTo($newRow);
   let $price = $("<td>").text(prodObj.price).appendTo($newRow);
   let $stock = $("<td>").text(prodObj.stockQty).appendTo($newRow);
+
   let $btnEdit = $("<td>")
     .html('<i class="fas fa-marker"></i>')
     .appendTo($newRow);
-  //TODO: Add event listener to button
+  // Event listener to edit button
+  $btnEdit.on("click", function () {
+    // Show/hide corresponding windows
+    $("#product-cont").addClass("d-none");
+    $("#createNewProduct").removeClass("d-none");
+    $("#createProdBtn").addClass("d-none");
+    $("#editProdBtn").removeClass("d-none");
+    // Update category checkboxes
+    $(".form-check").remove();
+    let cats = getExistingCategories();
+    cats.forEach((cat) => {
+      generateCheckbox(cat);
+    });
+    // Recover object values into the form
+    $("#productTitle").val(prodObj.title);
+    $("#productPrice").val(prodObj.price);
+    $("#imgUrl").val(prodObj.img);
+    $("#productDescription").val(prodObj.description);
+    $("#itemsStock").val(prodObj.stockQty);
+    $(".form-check-input").each(function (item, element) {
+      if (prodObj.category.includes($(element).val())) {
+        $(element).attr("checked", "true");
+      }
+    });
+    // Remove valid/invalid warnings
+    $("#createNewProduct .form-control").removeClass("is-valid");
+    $("#createNewProduct .form-control").removeClass("is-invalid");
+    $("#invalid-cat").addClass("d-none");
+  });
+
   let $btnRemove = $("<td>")
     .html('<i class="fas fa-trash-alt"></i>')
     .appendTo($newRow);
