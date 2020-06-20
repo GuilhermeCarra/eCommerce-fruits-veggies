@@ -156,6 +156,12 @@ $(document).ready(function () {
 
 //Create New Products
 $("#addNewProduct").click(function () {
+  // Clear inputs
+  $("#createNewProduct .form-control").val("");
+  // Remove valid/invalid warnings
+  $("#createNewProduct .form-control").removeClass("is-valid");
+  $("#createNewProduct .form-control").removeClass("is-invalid");
+  $("#invalid-cat").addClass("d-none");
   // Update category checkboxes
   $(".form-check").remove();
   let cats = getExistingCategories();
