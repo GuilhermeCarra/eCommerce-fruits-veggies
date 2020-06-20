@@ -253,12 +253,20 @@ $("#editCategoryBtn").click(function (e) {
 $("#createProdBtn").on("click", function (e) {
   e.preventDefault();
 
-  let isValid = validateProduct();
+  let results = validateProduct();
+  let isValid = results[0];
+  let categories = results[1];
   if (isValid) {
     //Create product object
     let newId = getHighestId("product") + 1;
     let newProd = {
       id: newId,
+      title: $("#productTitle").val().trim(),
+      img: $("#imgUrl").val().trim(),
+      price: parseFloat($("#productPrice").val().trim()),
+      description: $("#productDescription").val().trim(),
+      stockQty: parseFloat($("#itemsStock").val().trim()),
+      category: categories,
     };
     //Save object in LocalStorage
     let shop = JSON.parse(localStorage.getItem("shopJSON"));
@@ -464,62 +472,58 @@ function getExistingCategories() {
 }
 
 function validateProduct() {
-  let validated = false;
-  let prodNameOK = false;
-  let priceOK = false;
-  let urlOK = false;
-  let stockOK = false;
-  let prodCatOK = false;
+  let validated = true;
 
   let prodName = $("#productTitle").val().trim();
   if (prodName == "") {
     $("#productTitle").addClass("is-invalid");
+    validated = false;
   } else {
     $("#productTitle").removeClass("is-invalid");
     $("#productTitle").addClass("is-valid");
-    prodNameOK = true;
   }
 
   let price = $("#productPrice").val().trim();
   if (price == "" || parseFloat(price) <= 0) {
     $("#productPrice").addClass("is-invalid");
+    validated = false;
   } else {
     $("#productPrice").removeClass("is-invalid");
     $("#productPrice").addClass("is-valid");
-    priceOK = true;
   }
 
   let url = $("#imgUrl").val().trim();
   if (url == "") {
     $("#imgUrl").addClass("is-invalid");
+    validated = false;
   } else {
     $("#imgUrl").removeClass("is-invalid");
     $("#imgUrl").addClass("is-valid");
-    urlOK = true;
   }
 
   let stock = $("#itemsStock").val().trim();
   if (stock == "" || parseFloat(stock) <= 0) {
     $("#itemsStock").addClass("is-invalid");
+    validated = false;
   } else {
     $("#itemsStock").removeClass("is-invalid");
     $("#itemsStock").addClass("is-valid");
-    stockOK = true;
   }
 
   let catBoxes = $("#createNewProduct input[type=checkbox]");
-  let checked = false;
+  let categories = [];
   $(catBoxes).each(function (index, element) {
     if ($(element).prop("checked") == true) {
-      checked = true;
+      categories.push($(element).val());
     }
   });
-  if (checked == true) {
+  if (categories.length > 0) {
     $("#invalid-cat").addClass("d-none");
-    prodCatOK = true;
   } else {
     $("#invalid-cat").removeClass("d-none");
+    validated = false;
   }
+  return [validated, categories];
 }
 
 function validateCategory() {
