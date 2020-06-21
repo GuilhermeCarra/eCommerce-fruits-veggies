@@ -5,8 +5,8 @@ var cart = [];
 var total = 0;
 
 if (localStorage.getItem('shopJSON') == null) {
-    var shop = [];
-    localStorage.setItem('shopJSON', shop);
+    localStorage.setItem('shopJSON', JSON.stringify(jsonSeeder));
+    var shop = JSON.parse(localStorage.getItem('shopJSON'));
 } else {
     var shop = JSON.parse(localStorage.getItem('shopJSON'));
 }
