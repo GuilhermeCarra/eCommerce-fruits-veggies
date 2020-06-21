@@ -699,24 +699,6 @@ function validateEditedCat() {
 }
 
 
-
-//Validation add Admin
-$("#createAdminBtn").click(function (e) {
-  e.preventDefault();
-  let isValid = validateAdmin()
-  if (isValid) {
-
-  }
-})
-
-
-function validateAdmin() {
-  let fullName = $("#fullNameAdmin").val().trim();
-  if (fullName == "") {
-    $("#fullNameAdmin").addClass("is-invalid");
-    
-  }
-}
 function generateCheckbox(str) {
   let $div = $("<div>").addClass("form-check form-check-inline");
   let $input = $("<input>").addClass("form-check-input");
@@ -728,4 +710,131 @@ function generateCheckbox(str) {
   $label.text(str);
   $div.append($input).append($label);
   $("#cat-cont").prepend($div);
+}
+
+
+
+// Add Admin 
+$("#createAdminBtn").click(function (e) {
+  e.preventDefault();
+  let isValid = validateAdmin()
+  if (isValid) {
+    //Create object category
+    let newId = getHighestId("admin") + 1;
+    let newAdmin = {
+      id: newId,
+      name: $("#nameAdmin").val().trim(),
+      surname: $("#surnameAdmin").val().trim(),
+      email: $("#inputEmail").val().trim(),
+      password: $("#inputPassword").val().trim()
+    };
+    //Save object in LocalStorage
+    let shop = JSON.parse(localStorage.getItem("shopJSON"));
+    shop.admins.push(newAdmin);
+    localStorage.setItem("shopJSON", JSON.stringify(shop));
+    //Hide form
+    $("#createNewAdmin").addClass("d-none");
+  }
+})
+
+//Validation add Admin
+function validateAdmin() {
+
+  let validName = true;
+  let validSurName = true;
+  let validEmail = true;
+  let validPassword = true;
+
+  let nameAdmin = $("#nameAdmin").val().trim();
+  let surnameAdmin = $("#surnameAdmin").val().trim();
+  let email = $("#inputEmail").val().trim();
+  let password = $("#inputPassword").val().trim();
+
+  if (nameAdmin == "") {
+    $("#nameAdmin").addClass("is-invalid");
+    validName = false;
+  } else {
+    $("#nameAdmin").removeClass("is-invalid");
+    $("#nameAdmin").addClass("is-valid");
+
+  }
+
+  if (surnameAdmin == "") {
+    $("#surnameAdmin").addClass("is-invalid");
+    validSurName = false;
+  } else {
+    $("#surnameAdmin").removeClass("is-invalid");
+    $("#surnameAdmin").addClass("is-valid");
+  }
+
+  if (email == "") {
+    $("#inputEmail").addClass("is-invalid");
+    $("#emailEmpty").removeClass("d-none");
+    $("#emailInv").addClass("d-none");
+    $("#emailEx").addClass("d-none");
+    validEmail = false;
+
+  } else {
+    if (!isEmail(email)) {
+      $("#inputEmail").addClass("is-invalid");
+      $("#emailInv").removeClass("d-none");
+      $("#emailEmpty").addClass("d-none");
+      $("#emailEx").addClass("d-none");
+      validEmail = false;
+    } else {
+      let shop = JSON.parse(localStorage.getItem("shopJSON"));
+      let found = false;
+      for (let i = 0; i < shop.admins.length; i++) {
+        if (shop.admins[i].email == email) {
+          found = true;
+          break;
+        }
+      }
+      if (found) {
+        $("#inputEmail").addClass("is-invalid");
+        $("#emailEmpty").addClass("d-none");
+        $("#emailEx").removeClass("d-none");
+        validEmail = false;
+      }else{
+        $("#inputEmail").removeClass("is-invalid");
+        $("#inputEmail").addClass("is-valid");
+      }
+    }
+  }
+  if (password == "") {
+    $("#inputPassword").addClass("is-invalid");
+    $("#passwordEmpty").removeClass("d-none");
+    $("#passwordInv").addClass("d-none");
+    validPassword = false;
+  } else {
+    if (!CheckPassword(password)) {
+      $("#inputPassword").addClass("is-invalid");
+      $("#passwordInv").removeClass("d-none");
+      $("#passwordEmpty").addClass("d-none");
+      validPassword = false;
+    }
+    else{
+      $("#inputPassword").removeClass("is-invalid");
+      $("#inputPassword").addClass("is-valid");
+    }
+  }
+  if (validName && validSurName && validEmail && validPassword) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+function isEmail(email) {
+  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+function CheckPassword(password) {
+  let passw = /^[A-Za-z0-9]\w{8,12}$/;
+  if (password.match(passw)) {
+    return true;
+  } else {
+    return false;
+  }
 }

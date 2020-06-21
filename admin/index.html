@@ -266,10 +266,6 @@
                     <form class="needs-validation" autocomplete="off">
                         <div class="row">
                             <div class="col-12 pb-4">
-                                <label for="fullNameAdmin" class="font-weight-bold" id="fullNameAdmin">Full Name</label>
-                                <input type="text" class="form-control" id="categoryTitle" placeholder="Full Name"
-                                    value="" required="">
-                                <div class="invalid-feedback" id="adminEmpty"> Valid full name is required. </div>
                                 <label for="nameAdmin" class="font-weight-bold">Name</label>
                                 <input type="text" class="form-control" id="nameAdmin" placeholder="Name" value="">
                                 <div class="invalid-feedback"> Valid name is required. </div>
@@ -284,12 +280,16 @@
                                 <label for="inputEmail" class="font-weight-bold">Email address</label>
                                 <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
                                     placeholder="Enter email">
-                                <div class="invalid-feedback"> Valid email is required. </div>
+                                <div class="invalid-feedback" id="emailEmpty"> Valid email is required. </div>
+                                <div class="invalid-feedback" id="emailEx"> Email already exists. </div>
+                                <div class="invalid-feedback" id="emailInv"> Email is invalid. </div>
                             </div>
                             <div class="col-12 pb-4">
                                 <label for="inputPassword" class="font-weight-bold">Password</label>
                                 <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                                <div class="invalid-feedback"> Valid password is required. </div>
+                                <div class="invalid-feedback" id="passwordEmpty"> Valid password is required. </div>
+                                <div class="invalid-feedback" id="passwordInv"> Password must be between 8 and 12
+                                    characters and contain only letters and numbers.</div>
                             </div>
                         </div>
                         <div class="row justify-content-center pt-5">
