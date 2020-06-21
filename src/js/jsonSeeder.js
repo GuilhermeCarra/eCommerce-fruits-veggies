@@ -1,10 +1,10 @@
 jsonSeeder = {
     "products":[
-        {"id":1,"title":"Watermelon","img":"src/img/watermelon.jpg","price":6.98,"description":"Whole watermelon about 6kg","stockQty":1000,"category":["Fruits"]},
+        {"id":1,"title":"Watermelon","img":"src/img/watermelon.jpg","price":4.65,"description":"Whole watermelon about 6kg","stockQty":1000,"category":["Fruits"]},
         {"id":2,"title":"Apricot","img":"src/img/apricot.jpg","price":1.80,"description":"Basket of apricots 6 units","stockQty":1000,"category":["Fruits"]},
-        {"id":3,"title":"Melon","img":"src/img/melon.jpg","price":2.80,"description":"Whole melon about 1.5kg","stockQty":1000,"category":["Fruits"]},
-        {"id":4,"title":"Tangerine","img":"src/img/tangerine.jpg","price":2.80,"description":"Tangerines mesh 2kg","stockQty":1000,"category":["Fruits","Organics"]},
-        {"id":5,"title":"Apple","img":"src/img/apple.jpg","price":2.80,"description":"Basket of apples 4 units","stockQty":1000,"category":["Fruits"]},
+        {"id":3,"title":"Melon","img":"src/img/melon.jpg","price":4.00,"description":"Whole melon about 1.5kg","stockQty":1000,"category":["Fruits"]},
+        {"id":4,"title":"Tangerine","img":"src/img/tangerine.jpg","price":1.10,"description":"Tangerines mesh 2kg","stockQty":1000,"category":["Fruits","Organics"]},
+        {"id":5,"title":"Apple","img":"src/img/apple.jpg","price":0.40,"description":"Basket of apples 4 units","stockQty":1000,"category":["Fruits"]},
         {"id":6,"title":"Lettuce iceberg","img":"src/img/lettuce.jpg","price":0.99,"description":"1 piece about 200g","stockQty":140,"category":["Vegetables","Organics"]},
         {"id":7,"title":"Orange Juice","img":"src/img/orangeJuice.jpg","price":1.00,"description":"1 L Bottle - Recently squeezed Juice Hacendado","stockQty":90,"category":["Juices"]},
         {"id":8,"title":"Potato ","img":"src/img/potato.jpg","price":0.40,"description":"1 piece about 250g","stockQty":900,"category":["Vegetables","Organics"]},
