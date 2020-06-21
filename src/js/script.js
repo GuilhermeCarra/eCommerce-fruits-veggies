@@ -292,4 +292,5 @@ function refreshStock() {
         });
         product.stockQty -= cart[i].quantity;
     }
+    localStorage.setItem("shopJSON", JSON.stringify(shop));
 }
