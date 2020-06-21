@@ -40,7 +40,7 @@ function printProducts(filter) {
                     $(img).attr("src", products[0].img).data("idProduct", products[0].id).click(showProduct),
                     $(cardBody).append(
                         $(cardTitle).text(products[0].title),
-                        $(cardText).text(products[0].price + " €/pc")
+                        $(cardText).text(products[0].price.toFixed(2) + " €/pc")
                     )
                 )
             )
@@ -95,7 +95,7 @@ function showProduct() {
     }
     $("#details_title").text(product.title);
     $("#details_description").text(product.description);
-    $("#details_price").text(product.price + " €/pc");
+    $("#details_price").text(product.price.toFixed(2) + " €/pc");
     $("#thumb1").attr("src", product.img).addClass("border-info").click(changeThumb);
     $("#thumb2").attr("src", "src/img/" + idProduct + "_thumb2.jpg").click(changeThumb);
     $("#thumb3").attr("src", "src/img/" + idProduct + "_thumb3.jpg").click(changeThumb);
