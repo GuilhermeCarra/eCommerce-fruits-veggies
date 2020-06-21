@@ -86,7 +86,7 @@
     </div>
 
     <!-- Filter bar -->
-    <div class="row bg-light mb-4 py-2 align-items-center sticky-top" id="filter_bar">
+    <div class="row mx-0 bg-light mb-4 py-2 align-items-center sticky-top" id="filter_bar">
         <div class="d-sm-none d-md-block col"></div>
         <div class="d-none d-md-block col-md-1 col-lg-1">
             <div class="badge badge-secondary">Filters</div>
@@ -127,12 +127,14 @@
     </div>
 
     <!-- Products list -->
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8 row" id="products_list">
-            <!-- Products list printed dynamically -->
+    <div class="container-fluid">
+        <div class="row mx-0">
+            <div class="col"></div>
+            <div class="col-9 row" id="products_list">
+                <!-- Products list printed dynamically -->
+            </div>
+            <div class="col"></div>
         </div>
-        <div class="col-2"></div>
     </div>
 
     <!-- Footer -->
@@ -145,8 +147,7 @@
     <!-- Modals Section -->
 
     <!-- Product Details Modal -->
-    <div class="modal fade" id="product_details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="product_details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header" id="product_details_header">
@@ -202,7 +203,7 @@
     <!-- Registration Modal -->
     <div class="modal fade" id="registration_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Order Summary - Register</h5>
@@ -273,7 +274,7 @@
     <!-- Thank you for your order modal -->
     <div class="modal fade" id="summary_finish" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title" id="staticBackdropLabel">Thank you for your order!</h1>
@@ -283,13 +284,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="row px-4 align-items-center" id="summary_page">
-                        <div class="col-7 border rounded">
+                        <div class="col-lg-7 border rounded">
                             <h4 class="my-3">Your Order <i class="fas fa-shopping-bag"></i></h4>
                             <div class="row" id="summary_products">
                                 <!-- Purchased products printed dynamically -->
                             </div>
                         </div>
-                        <div class="col ml-4 border py-4 rounded">
+                        <div class="col ml-lg-4 mt-3 mt-lg-0 border py-4 rounded">
                             <h4>Payment Details <i class="far fa-credit-card"></i></h4>
                             <hr>
                             <h6>Subtotal:<span id="summary_subtotal" class="float-right"></span></h6>

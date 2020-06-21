@@ -26,7 +26,7 @@ function printProducts(filter) {
     let products = filter == undefined ? [...shop.products] : filter;
 
     let emptyCol = '<div class="col-sm-6 col-md-4 col-lg-3 pb-4"></div>';
-    let card = '<div class="card"><div>';
+    let card = '<div class="card h-100"><div>';
     let img = '<img src="" class="card-img-top" data-toggle="modal" data-target="#product_details">';
     let cardBody = '<div class="card-body"></div>';
     let cardTitle = '<h5 class="card-title"></h5>';
@@ -180,7 +180,7 @@ function showCart() {
                 .append($(cartImage).append('<img class="img-thumbnail" src="' + cartsProducts[j].img + '" />'))
                 .append($(divColum)
                     .append($('<h6>', {text: cartsProducts[j].title}))
-                    .append($('<h6>', {text: cartsProducts[j].price + '\u20ac'}))
+                    .append($('<h6>', {text: cartsProducts[j].price.toFixed(2) + '\u20ac'}))
                     .append($('<span>', {text: cart[j].quantity})
                         .append($('<span>', {text: piece}))
                         .append($('<i id="remove-item" class="fas fa-trash float-right"></i>').attr('data-id', cart[j].id)
@@ -272,7 +272,7 @@ function showSummary(){
                 $(emptyCol).append(
                     $('<img class="img-thumbnail col-5 float-left" src="' + cartsProducts[j].img + '" />'),
                     $('<h6 class="col-7 float-right mb-0">').text(cartsProducts[j].title),
-                    $('<small class="col-7 float-right d-block">').text(cartsProducts[j].price+" €/pc"),
+                    $('<small class="col-7 float-right d-block">').text(cartsProducts[j].price.toFixed(2)+" €/pc"),
                     $('<small class="col-7 float-right">').text(cart[j].quantity+" "+pieceNumber)
                 )
             );
