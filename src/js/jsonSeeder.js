@@ -9,7 +9,7 @@ jsonSeeder = {
         {"id":7,"title":"Orange Juice","img":"src/img/orangeJuice.jpg","price":1.00,"description":"1 L Bottle - Recently squeezed Juice Hacendado","stockQty":90,"category":["Juices"]},
         {"id":8,"title":"Potato ","img":"src/img/potato.jpg","price":0.40,"description":"1 piece about 250g","stockQty":900,"category":["Vegetables"]},
         {"id":9,"title":"Orange","img":"src/img/orange.jpg","price":0.50,"description":"1 piece about 300g","stockQty":500,"category":["Fruits"]},
-        {"id":10,"title":"Passion Fruit Juice","img":"src/img/passionJuice.jpg","price":2.75,"description":"750 ml bottle - Passion fruit and chia Juice Hacendado","stockQty":70,"category":["Juices"]},
+        {"id":10,"title":"Passion Fruit Jui.","img":"src/img/passionJuice.jpg","price":2.75,"description":"750 ml bottle - Passion fruit and chia Juice Hacendado","stockQty":70,"category":["Juices"]},
         {"id":11,"title":"Pineapple Juice","img":"src/img/pineappleJuice.jpg","price":1.10,"description":"1,5 L bottle - Pineapple and coconut juice La Verja","stockQty":70,"category":["Juices"]},
         {"id":12,"title":"Tomato canario","img":"src/img/tomato.jpg","price":0.15,"description":"1 piece about 150g","stockQty":40,"category":["Vegetables"]},
         {"id":13,"title":"Banana","img":"src/img/banana.jpg","price":0.25,"description":"1 piece about 180g","stockQty":170,"category":["Fruits"]},
