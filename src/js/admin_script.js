@@ -422,3 +422,23 @@ function validateCategory() {
   }
   return validated;
 }
+
+
+
+//Validation add Admin
+$("#createAdminBtn").click(function (e) {
+  e.preventDefault();
+  let isValid = validateAdmin()
+  if (isValid) {
+
+  }
+})
+
+
+function validateAdmin() {
+  let fullName = $("#fullNameAdmin").val().trim();
+  if (fullName == "") {
+    $("#fullNameAdmin").addClass("is-invalid");
+    
+  }
+}
