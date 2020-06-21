@@ -76,9 +76,10 @@ svg {
 
 .modal.right .modal-content {
     height: 100%;
-    overflow:none;
+    overflow: none;
 }
-#cart-content{
+
+#cart-content {
     overflow: auto;
 }
 
@@ -97,7 +98,7 @@ svg {
     width: 50%;
     border-radius: 20px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, .4);
-    /* margin: 5em auto; */
+    margin: 5rem auto;
     display: flex;
 }
 
@@ -218,6 +219,14 @@ form {
     color: #fff;
 }
 
+select.form-control:valid {
+    background-position: right calc(.75em + .375em + .1875rem) center;
+}
+
+select.form-control:invalid {
+    background-position: right calc(.75em + .375em + .1875rem) center;
+}
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
@@ -324,4 +333,11 @@ ul ul a {
 ----------------------------------------------------- */
 table i:hover {
     cursor: pointer;
+}
+
+#invalid-cat {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
 }
