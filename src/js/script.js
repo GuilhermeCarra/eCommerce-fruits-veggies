@@ -91,7 +91,7 @@ function showProduct() {
     $("#detailsMainImg").attr("src", product.img).data("idProduct", idProduct);
     for (let i = 0; i < product.category.length; i ++) {
         ctgrColor.push(shop.categories.find( ({name}) => name === product.category[i]));
-        $("#product_details_header").prepend($('<h2 class="badge modal-title badge-'+ctgrColor[i].color+'">').text(product.category[i]));
+        $("#product_details_header").prepend($('<h2 class="mr-1 badge modal-title badge-'+ctgrColor[i].color+'">').text(product.category[i]));
     }
     $("#details_title").text(product.title);
     $("#details_description").text(product.description);

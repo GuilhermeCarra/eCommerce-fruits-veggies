@@ -90,6 +90,11 @@ svg {
     background-color: orangered;
 }
 
+.badge-yellow {
+    color: #fff;
+    background-color: rgb(218, 214, 2);
+}
+
 /* ---------------------------------------------------
     CART MODAL
 ----------------------------------------------------- */
