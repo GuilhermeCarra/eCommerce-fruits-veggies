@@ -744,7 +744,7 @@ function isEmail(email) {
 }
 
 function CheckPassword(password) {
-  let passw = /^[A-Za-z0-9]\w{8,12}$/;
+  let passw = /^[A-Za-z0-9]\w{7,11}$/;
   if (password.match(passw)) {
     return true;
   } else {
