@@ -290,7 +290,23 @@ function appendAdmin(adminObj) {
   let $btnEdit = $("<td>")
     .html('<i class="fas fa-marker"></i>')
     .appendTo($newRow);
-  //TODO: Add event listener to button
+  // Event listener to edit button
+  $btnEdit.on('click', function () {
+    // Show/hide corresponding windows
+    $("#admin-cont").addClass("d-none");
+    $("#createNewAdmin").removeClass("d-none");
+    $("#createAdminBtn").addClass("d-none");
+    $("#editAdminBtn").removeClass("d-none");
+    // Recover object values into the form
+    $("#nameAdmin").val(adminObj.name);
+    $("#nameAdmin").attr("data-adminId", adminObj.id);
+    $("#surnameAdmin").val(adminObj.surname);
+    $("#inputEmail").val(adminObj.email);
+    $("#inputPassword").val(adminObj.password);
+    // Remove valid/invalid warnings
+    $("#createNewAdmin .form-control").removeClass("is-valid");
+    $("#createNewAdmin .form-control").removeClass("is-invalid");
+  })
   let $btnRemove = $("<td>")
     .html('<i class="fas fa-trash-alt"></i>')
     .appendTo($newRow);
@@ -421,7 +437,7 @@ function appendCategory(catObj) {
       $(this).parent().remove();
     } else {
       alert(
-        "Deletion is not possible! Category being used by products.\nPlease delete products first."
+        "Deletion is not possible! Category being used in products.\nPlease delete products first."
       );
     }
   });
@@ -708,7 +724,7 @@ function validateAdmin() {
         $("#emailEmpty").addClass("d-none");
         $("#emailEx").removeClass("d-none");
         validEmail = false;
-      }else{
+      } else {
         $("#inputEmail").removeClass("is-invalid");
         $("#inputEmail").addClass("is-valid");
       }
@@ -725,8 +741,7 @@ function validateAdmin() {
       $("#passwordInv").removeClass("d-none");
       $("#passwordEmpty").addClass("d-none");
       validPassword = false;
-    }
-    else{
+    } else {
       $("#inputPassword").removeClass("is-invalid");
       $("#inputPassword").addClass("is-valid");
     }
