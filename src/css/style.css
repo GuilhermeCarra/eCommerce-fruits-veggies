@@ -77,6 +77,34 @@ svg {
     transition: 200ms ease-in-out;
 }
 
+#cart-modal {
+    background-color: #31525B !important;
+}
+
+#itemsCartNum {
+    color: black;
+}
+
+@media screen and (max-width: 575px) {
+    .col-xs {
+        width: 40%;
+    }
+    .col-xs-cart {
+        width: 20%;
+    }
+    .d-xs-none {
+        display: none;
+    }
+    .logo-xs {
+        width: 50% !important;
+    }
+}
+
+#toggler-icon {
+    color: chartreuse !important;
+    fill: rgb(243, 10, 10);
+}
+
 /* ------------------------------------------------
     PRODUCT DETAILS PAGE
 --------------------------------------------------- */
@@ -449,13 +477,6 @@ table i:hover {
     width: 20%;
     height: auto;
 }
-
-
-.navbar-dark .navbar-toggler {
-    border: 0;
-}
-
-
 
 /* ---------------------------------------------------
     Footer
