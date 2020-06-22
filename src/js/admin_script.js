@@ -123,11 +123,6 @@ $("#addNewAdmin").click(function () {
   $("#editAdminBtn").addClass("d-none");
 });
 
-// Validation add Admin
-$("#createAdminBtn").click(function (e) {
-  e.preventDefault();
-});
-
 //Validation add Category
 $("#createCategoryBtn").click(function (e) {
   e.preventDefault();
@@ -290,7 +285,23 @@ function appendAdmin(adminObj) {
   let $btnEdit = $("<td>")
     .html('<i class="fas fa-marker"></i>')
     .appendTo($newRow);
-  //TODO: Add event listener to button
+  // Event listener to edit button
+  $btnEdit.on('click', function () {
+    // Show/hide corresponding windows
+    $("#admin-cont").addClass("d-none");
+    $("#createNewAdmin").removeClass("d-none");
+    $("#createAdminBtn").addClass("d-none");
+    $("#editAdminBtn").removeClass("d-none");
+    // Recover object values into the form
+    $("#nameAdmin").val(adminObj.name);
+    $("#nameAdmin").attr("data-adminId", adminObj.id);
+    $("#surnameAdmin").val(adminObj.surname);
+    $("#inputEmail").val(adminObj.email);
+    $("#inputPassword").val(adminObj.password);
+    // Remove valid/invalid warnings
+    $("#createNewAdmin .form-control").removeClass("is-valid");
+    $("#createNewAdmin .form-control").removeClass("is-invalid");
+  })
   let $btnRemove = $("<td>")
     .html('<i class="fas fa-trash-alt"></i>')
     .appendTo($newRow);
@@ -421,7 +432,7 @@ function appendCategory(catObj) {
       $(this).parent().remove();
     } else {
       alert(
-        "Deletion is not possible! Category being used by products.\nPlease delete products first."
+        "Deletion is not possible! Category being used in products.\nPlease delete products first."
       );
     }
   });
@@ -625,9 +636,41 @@ function generateCheckbox(str) {
   $("#cat-cont").prepend($div);
 }
 
+// Edit admin
+$("#editAdminBtn").click(function (e) {
+  e.preventDefault();
 
+  let isValid = validateEditedAdmin();
+  if (isValid) {
+    let shop = JSON.parse(localStorage.getItem("shopJSON"));
+    shop.admins.forEach((admin) => {
+      if (admin.id == $("#nameAdmin").data("adminid")) {
+        admin.name = $("#nameAdmin").val().trim();
+        admin.surname = $("#surnameAdmin").val().trim();
+        admin.email = $("#inputEmail").val().trim();
+        admin.password = $("#inputPassword").val().trim();
 
-// Add Admin 
+        $("#nameAdmin").removeData("adminid");
+        $("#nameAdmin").removeAttr("data-adminid");
+        localStorage.setItem("shopJSON", JSON.stringify(shop));
+      }
+    });
+    // Hide form
+    $("#createNewAdmin").addClass("d-none");
+    $("#nameAdmin").removeClass("is-valid");
+    $("#surnameAdmin").removeClass("is-valid");
+    $("#inputEmail").removeClass('is-valid');
+    $("#inputPassword").removeClass('is-valid');
+    // Show list
+    $("#admin-table tbody").empty();
+    shop.admins.forEach((admin) => {
+      appendAdmin(admin);
+    });
+    $("#admin-cont").removeClass("d-none");
+  }
+});
+
+// Add Admin
 $("#createAdminBtn").click(function (e) {
   e.preventDefault();
   let isValid = validateAdmin()
@@ -669,7 +712,6 @@ function validateAdmin() {
   } else {
     $("#nameAdmin").removeClass("is-invalid");
     $("#nameAdmin").addClass("is-valid");
-
   }
 
   if (surnameAdmin == "") {
@@ -686,7 +728,6 @@ function validateAdmin() {
     $("#emailInv").addClass("d-none");
     $("#emailEx").addClass("d-none");
     validEmail = false;
-
   } else {
     if (!isEmail(email)) {
       $("#inputEmail").addClass("is-invalid");
@@ -708,12 +749,13 @@ function validateAdmin() {
         $("#emailEmpty").addClass("d-none");
         $("#emailEx").removeClass("d-none");
         validEmail = false;
-      }else{
+      } else {
         $("#inputEmail").removeClass("is-invalid");
         $("#inputEmail").addClass("is-valid");
       }
     }
   }
+
   if (password == "") {
     $("#inputPassword").addClass("is-invalid");
     $("#passwordEmpty").removeClass("d-none");
@@ -725,8 +767,7 @@ function validateAdmin() {
       $("#passwordInv").removeClass("d-none");
       $("#passwordEmpty").addClass("d-none");
       validPassword = false;
-    }
-    else{
+    } else {
       $("#inputPassword").removeClass("is-invalid");
       $("#inputPassword").addClass("is-valid");
     }
@@ -746,6 +787,95 @@ function isEmail(email) {
 function CheckPassword(password) {
   let passw = /^[A-Za-z0-9]\w{7,11}$/;
   if (password.match(passw)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function validateEditedAdmin() {
+  let id = $('#nameAdmin').data('adminid');
+
+  let validName = true;
+  let validSurName = true;
+  let validEmail = true;
+  let validPassword = true;
+
+  let nameAdmin = $("#nameAdmin").val().trim();
+  let surnameAdmin = $("#surnameAdmin").val().trim();
+  let email = $("#inputEmail").val().trim();
+  let password = $("#inputPassword").val().trim();
+
+  if (nameAdmin == "") {
+    $("#nameAdmin").addClass("is-invalid");
+    validName = false;
+  } else {
+    $("#nameAdmin").removeClass("is-invalid");
+    $("#nameAdmin").addClass("is-valid");
+  }
+
+  if (surnameAdmin == "") {
+    $("#surnameAdmin").addClass("is-invalid");
+    validSurName = false;
+  } else {
+    $("#surnameAdmin").removeClass("is-invalid");
+    $("#surnameAdmin").addClass("is-valid");
+  }
+
+  if (email == "") {
+    $("#inputEmail").addClass("is-invalid");
+    $("#emailEmpty").removeClass("d-none");
+    $("#emailInv").addClass("d-none");
+    $("#emailEx").addClass("d-none");
+    validEmail = false;
+  } else {
+    if (!isEmail(email)) {
+      $("#inputEmail").addClass("is-invalid");
+      $("#emailInv").removeClass("d-none");
+      $("#emailEmpty").addClass("d-none");
+      $("#emailEx").addClass("d-none");
+      validEmail = false;
+    } else {
+      let shop = JSON.parse(localStorage.getItem("shopJSON"));
+      let found = false;
+      for (let i = 0; i < shop.admins.length; i++) {
+        if (shop.admins[i].id == id) {
+          continue;
+        } else if (shop.admins[i].email == email) {
+          found = true;
+          break;
+        }
+      }
+      if (found) {
+        $("#inputEmail").addClass("is-invalid");
+        $("#emailEmpty").addClass("d-none");
+        $("#emailEx").removeClass("d-none");
+        validEmail = false;
+      } else {
+        $("#inputEmail").removeClass("is-invalid");
+        $("#inputEmail").addClass("is-valid");
+      }
+    }
+  }
+
+  if (password == "") {
+    $("#inputPassword").addClass("is-invalid");
+    $("#passwordEmpty").removeClass("d-none");
+    $("#passwordInv").addClass("d-none");
+    validPassword = false;
+  } else {
+    if (!CheckPassword(password)) {
+      $("#inputPassword").addClass("is-invalid");
+      $("#passwordInv").removeClass("d-none");
+      $("#passwordEmpty").addClass("d-none");
+      validPassword = false;
+    } else {
+      $("#inputPassword").removeClass("is-invalid");
+      $("#inputPassword").addClass("is-valid");
+    }
+  }
+
+  if (validName && validSurName && validEmail && validPassword) {
     return true;
   } else {
     return false;

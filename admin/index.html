@@ -3,6 +3,8 @@
 
 <head>
     <title>EwB - eCommerce with Bootstrap</title>
+    <!------Favicon------>
+    <link rel="icon" type="image/png" href="../src/img/favicon.png"/>
     <!-----Bootstrap----->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -18,13 +20,15 @@
 
 <body>
     <!-- Login modal -->
-    <div class="container-fluid login-cont">
+    <div class="container-fluid login-cont bg-color1">
         <div class="row main-content bg-success text-center">
             <div class="col-md-4 text-center company__info">
                 <!-- <span class="company__logo">
                     <i class="fa fa-android"></i>
                 </span> -->
-                <h4 class="company_title">Your Company Logo</h4>
+                <img class="logo_form d-md-block d-none" src="../src/img/logo fruits & veggie LG.png">
+                <img class="logo_form d-md-none" src="../src/img/logo fruits & veggie MD.png">
+
             </div>
             <div class="col-md-8 col-xs-12 col-sm-12 login_form">
                 <div class="container-fluid">
@@ -67,7 +71,7 @@
     <!----------- Navigation ----------------->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <!-- <div class="container"> -->
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <img class="logo" src="../src/img/logo fruits & veggie.png">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -145,7 +149,7 @@
         </nav>
 
         <!-- Main content -->
-        <div id="content">
+        <div id="content" class="bg-color1">
             <!-- Sidebar button -->
             <button type="button" id="sidebarCollapse" class="btn btn-info float-left">
                 <svg class="bi bi-text-left" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor"
@@ -156,8 +160,8 @@
             </button>
             <!-------------Create New Product-------------->
             <div class="row d-none admin-create-container" id="createNewProduct" href="#createNewProduct">
-                <div class="col-2"></div>
-                <div class="col-8 order-md-1 pb-5">
+                <div class="col-1"></div>
+                <div class="col-10 order-md-1 pb-5">
                     <h3 class="mb-3 pl-5 pt-5 pb-4 font-weight-bold">New Product</h3>
                     <form class="needs-validation" autocomplete="off">
                         <div class="row">
@@ -219,12 +223,12 @@
                     </form>
                 </div>
             </div>
-            <div class="col-2"></div>
+            <div class="col-1"></div>
             <!--End New Product-->
             <!---New Category--->
             <div class="row justify-content-center d-none admin-create-container" id="createNewCategory"
                 href="#createNewCategory">
-                <div class="col-8 order-md-1 pb-5">
+                <div class="col-10 order-md-1 pb-5">
                     <h3 class="mb-3 pl-5 pt-5 pb-4 font-weight-bold">New Category</h3>
                     <form class="needs-validation" autocomplete="off">
                         <div class="row">
@@ -261,7 +265,7 @@
             <!---- New Admin---->
             <div class="row justify-content-center d-none admin-create-container" id="createNewAdmin"
                 href="#createNewAdmin">
-                <div class="col-8 order-md-1 pb-5">
+                <div class="col-10 order-md-1 pb-5">
                     <h3 class="mb-3 pl-5 pt-5 pb-4 font-weight-bold">New Admin</h3>
                     <form class="needs-validation" autocomplete="off">
                         <div class="row">
@@ -305,8 +309,9 @@
             <!-- Product table -->
             <div class="container admin-table-container d-none" id="product-cont">
                 <div class="row">
-                    <div class="col">
-                        <h4 class="text-center">Products</h4>
+                    <div class="col-1"></div>
+                    <div class="col-10 pt-4">
+                        <h4 class="text-center pb-3">Products</h4>
                         <div class="table-responsive">
                             <table class="table table-hover text-nowrap" id="product-table">
                                 <thead>
@@ -364,14 +369,16 @@
                             </table>
                         </div>
                     </div>
+                    <div class="col-1"></div>
                 </div>
             </div>
 
             <!-- Category table -->
             <div class="container admin-table-container d-none" id="category-cont">
                 <div class="row">
-                    <div class="col">
-                        <h4 class="text-center">Categories</h4>
+                    <div class="col-1"></div>
+                    <div class="col-10 pt-4">
+                        <h4 class="text-center pb-3">Categories</h4>
                         <div class="table-responsive">
                             <table class="table table-hover text-nowrap" id="category-table">
                                 <thead>
@@ -425,14 +432,16 @@
                             </table>
                         </div>
                     </div>
+                    <div class="col-1"></div>
                 </div>
             </div>
 
             <!-- Admin table -->
             <div class="container admin-table-container d-none" id="admin-cont">
                 <div class="row">
-                    <div class="col">
-                        <h4 class="text-center">Administrators</h4>
+                    <div class="col-1"></div>
+                    <div class="col-10 pt-4">
+                        <h4 class="text-center pb-3">Administrators</h4>
                         <div class="table-responsive">
                             <table class="table table-hover text-nowrap" id="admin-table">
                                 <thead>
@@ -490,6 +499,7 @@
                             </table>
                         </div>
                     </div>
+                    <div class="col-1"></div>
                 </div>
             </div>
         </div>
@@ -498,7 +508,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-primary">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright © Your Website 2019</p>
+            <p class="m-0 text-center text-white">Copyright © Fruits & Veggie 2020</p>
         </div>
     </footer>
 

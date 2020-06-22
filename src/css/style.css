@@ -14,7 +14,7 @@ body {
 }
 
 .bg-color1 {
-    background-color: #FAE6B1 !important;
+    background-color: #fff8e5 !important;
 }
 
 .bg-color2 {
@@ -27,6 +27,10 @@ body {
 
 .bg-color4 {
     background-color: #31525B !important;
+}
+
+.bg-color0 {
+    color: white !important;
 }
 
 svg {
@@ -46,6 +50,12 @@ svg {
 .carousel-caption h5 {
     font-weight: 700;
 }
+/* ---------------------------------------------------
+    FONTS
+----------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
 
 /* ------------------------------------------------
     USER HOME-PAGE
@@ -169,6 +179,7 @@ svg {
     box-shadow: 0 5px 5px rgba(0, 0, 0, .4);
     margin: 5rem auto;
     display: flex;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .login-cont {
@@ -179,17 +190,30 @@ svg {
 }
 
 .company__info {
-    background-color: #B3DEE5;
+    background-color: #ee675d;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 .company__info h4 {
     font-size: 1rem;
     color: black;
+}
+
+.logo_form {
+    width: 60%;
+    height: auto;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #ee675d !important;
+    border: 0;
+
 }
 
 @media screen and (max-width: 640px) {
@@ -204,6 +228,7 @@ svg {
     .login_form {
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
+
     }
 
     .login-btn {
@@ -214,6 +239,13 @@ svg {
 @media screen and (min-width: 641px) and (max-width:767px) {
     .main-content {
         width: 70%;
+    }
+
+    .logo_form {
+        width: 20vw;
+        height: auto;
+        padding: 1vw;
+        background-image: (src="../img/logo fruits & veggie MD.png");
     }
 
     .company__info {
@@ -239,7 +271,6 @@ svg {
     background-color: #fff;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    border-top: 1px solid #ccc;
     border-right: 1px solid #ccc;
 }
 
@@ -274,17 +305,17 @@ form {
     transition: all .5s ease;
     width: 70%;
     border-radius: 30px;
-    color: #008080;
+    color: #ee675d;
     font-weight: 600;
     background-color: #fff;
-    border: 1px solid #008080;
+    border: 1px solid #ee675d;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
 }
 
 .login-btn:hover,
 .login-btn:focus {
-    background-color: #008080;
+    background-color: #ee675d;
     color: #fff;
 }
 
@@ -319,7 +350,7 @@ select.form-control:invalid {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #7386D5;
+    background: #ee675d;
     color: #fff;
     transition: all 0.3s;
     min-height: calc(100vh - 56px - 7rem);
@@ -351,7 +382,7 @@ select.form-control:invalid {
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #ee675d;
     background: #fff;
     text-decoration: none;
 }
@@ -359,7 +390,7 @@ select.form-control:invalid {
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: #ee675d;
 }
 
 a[data-toggle="collapse"] {
@@ -377,7 +408,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: #d05148;
 }
 
 #content {
@@ -409,4 +440,44 @@ table i:hover {
     margin-top: .25rem;
     font-size: 80%;
     color: #dc3545;
+}
+
+/* ---------------------------------------------------
+    LOGO NAV
+----------------------------------------------------- */
+.logo {
+    width: 20%;
+    height: auto;
+}
+
+
+.navbar-dark .navbar-toggler {
+    border: 0;
+}
+
+
+
+/* ---------------------------------------------------
+    Footer
+----------------------------------------------------- */
+nav,footer{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+.table thead th {
+    vertical-align: bottom !important;
+    border-bottom: 2px solid #5e5e5e!important;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top !important;
+    border-top: 1px solid #d4d4d4 !important;
+}
+
+.btn-primary {
+    color: #fff!important;
+    background-color: #ee675d!important;
+    border-color: #ee675d!important;
 }
