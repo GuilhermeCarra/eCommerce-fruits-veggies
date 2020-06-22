@@ -33,6 +33,20 @@ svg {
     cursor: pointer;
 }
 
+.navbar-brand img:hover {
+    transform: scale(1.2);
+    transition: 200ms ease-in-out;
+}
+
+.carousel-caption {
+    font-family: 'Dosis', sans-serif;
+    text-shadow: rgba(0, 0, 0, 0.747) 1px 1px 4px;
+}
+
+.carousel-caption h5 {
+    font-weight: 700;
+}
+
 /* ------------------------------------------------
     USER HOME-PAGE
 --------------------------------------------------- */

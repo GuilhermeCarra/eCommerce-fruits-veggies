@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-    <title>EwB - eCommerce with Bootstrap</title>
+    <title>Fruits & Veggies</title>
     <link rel="icon" type="image/png" href="./src/img/favicon.png"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500;800&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c5a42aa6b7.js" crossorigin="anonymous"></script>
 </head>
@@ -14,6 +15,9 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./src/img/favicon.png" width="35" height="35" alt="" loading="lazy">
+            </a>
             <a class="navbar-brand" href="#">Start Bootstrap</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,22 +54,22 @@
                         <div class="carousel-item active">
                             <img src="src/img/slider1.jpg" class="d-block w-100">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                <h5>Organic Products Delivered To Your Door</h5>
+                                <p>Farm products like unique hand-crafted jams, pasture-raised eggs, dairy, artisan olive oil, and more....</p>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="src/img/slider2.jpg" class="d-block w-100">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h5>Check out our newest fruits recipes</h5>
+                                <p>Don't miss out our 8 new healthy freshest recipes!</p>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="src/img/slider3.jpg" class="d-block w-100">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                <h5>Freshness is key</h5>
+                                <p>We receive deliveries into our warehouse every night of the week direct from our farms!</p>
                             </div>
                         </div>
                     </div>
@@ -80,7 +84,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>  <!-- Carousel -->
 
     <!-- Filter bar -->
     <div class="row mx-0 bg-light mb-4 py-2 align-items-center sticky-top" id="filter_bar">
@@ -121,7 +125,7 @@
         </button>
         </div>
         <div class="col"></div>
-    </div>
+    </div> <!-- Filter bar -->
 
     <!-- Products list -->
     <div class="container-fluid">
@@ -132,14 +136,14 @@
             </div>
             <div class="col"></div>
         </div>
-    </div>
+    </div> <!-- Products list -->
 
     <!-- Footer -->
     <footer class="py-5 bg-primary" id="footer">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright © Your Website 2019</p>
         </div>
-    </footer>
+    </footer> <!-- Footer -->
 
     <!-- Modals Section -->
 
