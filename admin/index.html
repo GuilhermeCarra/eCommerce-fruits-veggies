@@ -159,13 +159,13 @@
                 <div class="col-2"></div>
                 <div class="col-8 order-md-1 pb-5">
                     <h3 class="mb-3 pl-5 pt-5 pb-4 font-weight-bold">New Product</h3>
-                    <form class="needs-validation" novalidate="">
+                    <form class="needs-validation" autocomplete="off">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="productTitle" class="font-weight-bold">Product title</label>
                                 <input type="text" class="form-control" id="productTitle" placeholder="Title" value=""
                                     required="">
-                                <div class="invalid-feedback"> Valid product title is required. </div>
+                                <div class="invalid-feedback"> Valid title is required. </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="price" class="font-weight-bold">Price</label>
@@ -183,28 +183,18 @@
                         <div class="mb-3">
                             <label for="productDescription" class="font-weight-bold">Product
                                 Description</label>
-                            <textarea class="form-control" id="ProductDescription" rows="3"
+                            <textarea class="form-control" id="productDescription" rows="3"
                                 placeholder="Description"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="itemsStock" class="font-weight-bold">Items in Stock</label>
                             <input type="text" class="form-control" id="itemsStock" placeholder="0" value=""
                                 required="">
-                            <div class="invalid-feedback"> Valid Price is required. </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="chooseColorProduct" id="chooseColorProduct" class="font-weight-bold">Choose
-                                Color</label>
-                            <select class="form-control">
-                                <option>Choose Color..</option>
-                                <option>Green</option>
-                                <option>Blue</option>
-                                <option>Yellow</option>
-                            </select>
+                            <div class="invalid-feedback"> Valid amount is required. </div>
                         </div>
                         <hr class="mb-4">
                         <label for="category" id="category" class="font-weight-bold">Category</label>
-                        <div class="d-block my-3 pb-3">
+                        <div class="d-block my-3 pb-3" id="cat-cont">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" id="vegetable" value="vegetable">
                                 <label class="form-check-label" for="vegetable">Vegetable</label>
@@ -217,10 +207,14 @@
                                 <input class="form-check-input" type="checkbox" id="juice" value="juice">
                                 <label class="form-check-label" for="juice">Juice</label>
                             </div>
+                            <div class="d-none" id="invalid-cat"> Select at least one category. </div>
                         </div>
                         <hr class="mb-4">
                         <div class="row justify-content-center">
-                            <button class="col-8 btn btn-primary btn-lg btn-block" type="submit">Create Product</button>
+                            <button class="col-8 btn btn-primary btn-lg btn-block" type="submit"
+                                id="createProdBtn">Create Product</button>
+                            <button class="col-8 btn btn-primary btn-lg btn-block" type="submit" id="editProdBtn">Edit
+                                Product</button>
                         </div>
                     </form>
                 </div>
@@ -228,64 +222,81 @@
             <div class="col-2"></div>
             <!--End New Product-->
             <!---New Category--->
-            <div class="row justify-content-center d-none admin-create-container" id="createNewCategory" href="#createNewCategory">
+            <div class="row justify-content-center d-none admin-create-container" id="createNewCategory"
+                href="#createNewCategory">
                 <div class="col-8 order-md-1 pb-5">
                     <h3 class="mb-3 pl-5 pt-5 pb-4 font-weight-bold">New Category</h3>
-                    <form class="needs-validation" novalidate="">
+                    <form class="needs-validation" autocomplete="off">
                         <div class="row">
                             <div class="col-12 pb-4">
                                 <label for="categoryTitle" class="font-weight-bold">Category Title</label>
                                 <input type="text" class="form-control" id="categoryTitle" placeholder="Title" value=""
                                     required>
-                                <div class="invalid-feedback"> Valid Category is required. </div>
+                                <div class="invalid-feedback" id="categoryEmpty"> Valid Category is required. </div>
+                                <div class="invalid-feedback" id="categoryEx"> Category already exists. </div>
                             </div>
                         </div>
                         <div class="row ">
                             <div class="col-12">
-                                <label for="chooseColorCategory" id="chooseColorCategory"
-                                    class="font-weight-bold">Choose Color</label>
-                                <select class="form-control">
+                                <label for="chooseColorCategory" class="font-weight-bold">Choose Color</label>
+                                <select class="form-control" id="chooseColorCategory">
                                     <option>Choose Color..</option>
                                     <option>Green</option>
                                     <option>Blue</option>
                                     <option>Yellow</option>
                                 </select>
+                                <div class="invalid-feedback" id="colorEmpty"> Valid color is required. </div>
                             </div>
                         </div>
                         <div class="row justify-content-center pt-5">
                             <button class="col-8 btn btn-primary btn-lg btn-block" type="submit"
                                 id="createCategoryBtn">Create Category</button>
+                            <button class="col-8 btn btn-primary btn-lg btn-block" type="submit"
+                                id="editCategoryBtn">Edit Category</button>
                         </div>
                     </form>
                 </div>
             </div>
             <!--End New Category-->
             <!---- New Admin---->
-            <div class="row justify-content-center d-none admin-create-container" id="createNewAdmin" href="#createNewAdmin">
+            <div class="row justify-content-center d-none admin-create-container" id="createNewAdmin"
+                href="#createNewAdmin">
                 <div class="col-8 order-md-1 pb-5">
                     <h3 class="mb-3 pl-5 pt-5 pb-4 font-weight-bold">New Admin</h3>
-                    <form class="needs-validation" novalidate="">
+                    <form class="needs-validation" autocomplete="off">
                         <div class="row">
                             <div class="col-12 pb-4">
-                                <label for="fullNameAdmin" class="font-weight-bold" id="fullNameAdmin">Full Name</label>
-                                <input type="text" class="form-control" id="categoryTitle" placeholder="Full Name"
-                                    value="" required="">
-                                <div class="invalid-feedback"> Valid full name is required. </div>
+                                <label for="nameAdmin" class="font-weight-bold">Name</label>
+                                <input type="text" class="form-control" id="nameAdmin" placeholder="Name" value="">
+                                <div class="invalid-feedback"> Valid name is required. </div>
                             </div>
                             <div class="col-12 pb-4">
-                                <label for="exampleInputEmail1" class="font-weight-bold">Email address</label>
-                                <input type="email" class="form-control" id="InputEmail"
-                                    aria-describedby="emailHelp" placeholder="Enter email">
+                                <label for="surnameAdmin" class="font-weight-bold">Surname</label>
+                                <input type="text" class="form-control" id="surnameAdmin" placeholder="Surname"
+                                    value="">
+                                <div class="invalid-feedback"> Valid surname is required. </div>
                             </div>
                             <div class="col-12 pb-4">
-                                <label for="exampleInputPassword1" class="font-weight-bold">Password</label>
-                                <input type="password" class="form-control" id="InputPassword"
-                                    placeholder="Password">
+                                <label for="inputEmail" class="font-weight-bold">Email address</label>
+                                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                                    placeholder="Enter email">
+                                <div class="invalid-feedback" id="emailEmpty"> Valid email is required. </div>
+                                <div class="invalid-feedback" id="emailEx"> Email already exists. </div>
+                                <div class="invalid-feedback" id="emailInv"> Email is invalid. </div>
+                            </div>
+                            <div class="col-12 pb-4">
+                                <label for="inputPassword" class="font-weight-bold">Password</label>
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                <div class="invalid-feedback" id="passwordEmpty"> Valid password is required. </div>
+                                <div class="invalid-feedback" id="passwordInv"> Password must be between 8 and 12
+                                    characters and contain only letters and numbers.</div>
                             </div>
                         </div>
                         <div class="row justify-content-center pt-5">
                             <button class="col-8 btn btn-primary btn-lg btn-block" type="submit"
-                                id="CreateAdminBtn">Create Admin</button>
+                                id="createAdminBtn">Create Admin</button>
+                            <button class="col-8 btn btn-primary btn-lg btn-block" type="submit" id="editAdminBtn">Edit
+                                Admin</button>
                         </div>
                     </form>
                 </div>
