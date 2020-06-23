@@ -452,7 +452,6 @@ ul ul a {
 #content.active {
     width: calc(100% - 250px);
     padding: 20px;
-    /* min-height: 100vh; */
     transition: all 0.3s;
 }
 
@@ -507,12 +506,6 @@ footer {
     vertical-align: top !important;
     border-top: 1px solid #d4d4d4 !important;
 }
-
-/* .btn-primary {
-    color: #fff !important;
-    background-color: #ee675d !important;
-    border-color: #ee675d !important;
-} */
 
 .admin-create-container .btn-primary {
     transition: all .5s ease !important;
